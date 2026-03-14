@@ -1,4 +1,3 @@
-import React from 'react';
 import { Linkedin, Twitter, Instagram, Send, Mail, MapPin } from 'lucide-react';
 import './Footer.css';
 
