@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
@@ -69,7 +69,62 @@ const Navbar = () => {
               )}
             </div>
 
-            <a href="#" className="nav-link">Citizenship <ChevronDown size={14} /></a>
+            <div 
+              className="nav-item-dropdown" 
+              onMouseEnter={() => setActiveDropdown('citizenship')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <a href="#" className="nav-link">Citizenship <ChevronDown size={14} className={activeDropdown === 'citizenship' ? 'rotate-180' : ''} /></a>
+              
+              {/* Mega Menu */}
+              {activeDropdown === 'citizenship' && (
+                <div className="mega-menu citizenship-menu glass-panel">
+                  <div className="mega-menu-header">
+                    <h4>The Carribean</h4>
+                  </div>
+                  <div className="mega-menu-grid citizenship-grid">
+                    <Link to="#" className="mega-card flag-card">
+                      <img src="https://flagcdn.com/w640/ag.png" alt="Antigua & Barbuda" className="flag-img" />
+                      <div className="flag-texture"></div>
+                      <div className="mega-card-overlay">
+                        <span>Antigua & Barbuda</span>
+                      </div>
+                      <div className="flag-icon-expand">
+                        <ArrowUpRight size={14} />
+                      </div>
+                    </Link>
+                    <Link to="#" className="mega-card flag-card">
+                      <img src="https://flagcdn.com/w640/dm.png" alt="Dominica" className="flag-img" />
+                      <div className="flag-texture"></div>
+                      <div className="mega-card-overlay">
+                        <span>Dominica</span>
+                      </div>
+                    </Link>
+                    <Link to="#" className="mega-card flag-card">
+                      <img src="https://flagcdn.com/w640/gd.png" alt="Grenada" className="flag-img" />
+                      <div className="flag-texture"></div>
+                      <div className="mega-card-overlay">
+                        <span>Grenada</span>
+                      </div>
+                    </Link>
+                    <Link to="#" className="mega-card flag-card">
+                      <img src="https://flagcdn.com/w640/lc.png" alt="St. Lucia" className="flag-img" />
+                      <div className="flag-texture"></div>
+                      <div className="mega-card-overlay">
+                        <span>St. Lucia</span>
+                      </div>
+                    </Link>
+                    <Link to="#" className="mega-card flag-card">
+                      <img src="https://flagcdn.com/w640/kn.png" alt="St Kitts & Nevis" className="flag-img" />
+                      <div className="flag-texture"></div>
+                      <div className="mega-card-overlay">
+                        <span>St Kitts & Nevis</span>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
             <a href="#" className="nav-link">Residency <ChevronDown size={14} /></a>
             <a href="#" className="nav-link">Services <ChevronDown size={14} /></a>
           </div>
