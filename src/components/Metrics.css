@@ -1,0 +1,35 @@
+/* Metrics Section */
+.about-metrics-section {
+  padding: 80px 0 120px 0;
+  background-color: white;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.metric-item {
+  text-align: left; /* Layout is left aligned per mockup */
+}
+
+.metric-icon {
+  color: #a75d3b;
+  margin-bottom: 24px;
+}
+
+.metric-item h4 {
+  font-size: 20px;
+  color: var(--secondary);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.metric-item p {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+

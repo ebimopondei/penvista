@@ -1,0 +1,42 @@
+
+/* New Content Badges */
+.section-badge {
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 24px;
+  color: var(--secondary);
+}
+
+/* About Intro Section */
+.about-intro-section {
+  padding: 100px 0;
+  background-color: white;
+  text-align: center;
+}
+
+.about-intro-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-text-lead {
+  font-size: 20px;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.intro-text-lead strong {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.intro-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
