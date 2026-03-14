@@ -5,6 +5,7 @@ import './Navbar.css';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +31,40 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <nav className="desktop-nav">
           <div className="nav-links-wrapper">
-            <a href="#" className="nav-link">About us <ChevronDown size={14} /></a>
+            <div 
+              className="nav-item-dropdown" 
+              onMouseEnter={() => setActiveDropdown('about')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <a href="#" className="nav-link">About us <ChevronDown size={14} className={activeDropdown === 'about' ? 'rotate-180' : ''} /></a>
+              
+              {/* Mega Menu */}
+              {activeDropdown === 'about' && (
+                <div className="mega-menu glass-panel">
+                  <div className="mega-menu-grid">
+                    <a href="#" className="mega-card">
+                      <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop" alt="About Us" />
+                      <div className="mega-card-overlay">
+                        <span>About Us</span>
+                      </div>
+                    </a>
+                    <a href="#" className="mega-card">
+                      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop" alt="Our Values" />
+                      <div className="mega-card-overlay">
+                        <span>Our Values</span>
+                      </div>
+                    </a>
+                    <a href="#" className="mega-card">
+                      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" alt="Our Team" />
+                      <div className="mega-card-overlay">
+                        <span>Our Team</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+
             <a href="#" className="nav-link">Citizenship <ChevronDown size={14} /></a>
             <a href="#" className="nav-link">Residency <ChevronDown size={14} /></a>
             <a href="#" className="nav-link">Services <ChevronDown size={14} /></a>
