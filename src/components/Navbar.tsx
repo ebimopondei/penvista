@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import './Navbar.css';
 
@@ -29,14 +29,10 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <nav className="desktop-nav">
-          <a href="#" className="nav-link">About Us</a>
-          <div className="nav-item-dropdown">
+          <div className="nav-links-wrapper">
+            <a href="#" className="nav-link">About us <ChevronDown size={14} /></a>
             <a href="#" className="nav-link">Citizenship <ChevronDown size={14} /></a>
-          </div>
-          <div className="nav-item-dropdown">
             <a href="#" className="nav-link">Residency <ChevronDown size={14} /></a>
-          </div>
-          <div className="nav-item-dropdown">
             <a href="#" className="nav-link">Services <ChevronDown size={14} /></a>
           </div>
         </nav>

@@ -35,6 +35,55 @@ const residencyPrograms = [
 const ProgramsSection = () => {
   return (
     <section className="programs">
+
+      {/* Floating Info Cards */}
+      <div className="programs-stats container stats-container">
+        <div className="hero-stats-wrapper">
+          <motion.div 
+            className="hero-stats"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="stat-card">
+              <div className="stat-card-top">
+                <h3>Over 10K +</h3>
+              </div>
+              <div className="stat-card-bottom">
+                <p>Families Advised</p>
+              </div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-card-top">
+                <h3>5 Years</h3>
+              </div>
+              <div className="stat-card-bottom">
+                <p>In Experience</p>
+              </div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-card-top">
+                <h3>100%</h3>
+              </div>
+              <div className="stat-card-bottom">
+                <p>Success rate</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Mobile slider controls (visual only since CSS scroll-snap handles interaction natively) */}
+          <div className="mobile-stats-nav">
+              <button className="stats-nav-btn prev">
+                <ChevronLeft size={20} color="white" />
+              </button>
+              <button className="stats-nav-btn next">
+                <ChevronRight size={20} color="white" />
+              </button>
+          </div>
+        </div>
+      </div>
+
+
       <div className="container">
         
         {/* Citizenship Section */}

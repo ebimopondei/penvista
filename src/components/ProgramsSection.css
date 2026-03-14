@@ -159,6 +159,61 @@
   width: 50%;
 }
 
+/* Floating Stats */
+.stats-container {
+  padding-bottom: 24px;
+}
+
+.hero-stats-wrapper {
+  position: relative;
+  z-index: 2;
+  /* margin-bottom: -50px; */
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.stat-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  padding: 0;
+
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.stat-card-top h3 {
+  font-size: 32px;
+  color: white;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.stat-card-bottom p {
+  color: var(--text-muted);
+  font-weight: 600;
+  margin: 0;
+  text-shadow: none;
+  font-size: 16px;
+}
+
+.programs-stats {
+  position: relative;
+  z-index: 1;
+  top: -170px;
+}
+
 @media (max-width: 768px) {
   .programs-grid {
     grid-template-columns: 1fr;
@@ -169,5 +224,52 @@
   .section-label::before, .section-label::after {
     width: 20px;
     margin: 0 8px;
+  }
+
+  .programs-stats {
+    position: static;
+    z-index: 1;
+    top: 0;
+  }
+
+  .hero-stats { 
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 24px; /* affordance for scrollbar/shadows */
+    scrollbar-width: none;
+  }
+  .hero-stats::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stat-card { 
+    min-width: 85%;
+    scroll-snap-align: center;
+    border: 1px solid var(--border-color);
+    background: white;
+  }
+  
+  .stat-card-top {
+    background: white;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 32px 24px 8px;
+  }
+  
+  .stat-card-top h3 {
+    color: var(--dark-navy);
+    text-shadow: none;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .hero-stats {
+    gap: 16px;
+  }
+  .stat-card-top h3 {
+    font-size: 28px;
   }
 }
