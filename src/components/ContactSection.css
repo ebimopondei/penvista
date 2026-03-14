@@ -1,0 +1,112 @@
+.contact {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-intro {
+  padding-top: 120px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.contact-header {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* ensure it stays above the wave */
+}
+
+.contact-header h2 {
+  font-size: 36px;
+  color: var(--dark-navy);
+  margin-bottom: 24px;
+}
+
+.contact-header h2 span {
+  color: var(--primary);
+}
+
+.contact-header p {
+  font-size: 18px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.contact-wave {
+  width: 100%;
+  line-height: 0;
+  margin-top: -60px; /* overlap upwards naturally instead of pushing content */
+  position: relative;
+  z-index: 0;
+}
+
+.contact-wave svg {
+  display: block;
+  width: 100%;
+  height: 120px;
+}
+
+.contact-form-area {
+  background-color: var(--dark-navy);
+  /* Optional: pattern overlay for the map design shown in the image */
+  background-image: radial-gradient(circle at center, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 60px 0 120px;
+  position: relative;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 16px 0;
+  color: white;
+  font-family: var(--font-family);
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-bottom-color: var(--primary);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-submit {
+  margin-top: 16px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 40px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .contact-header h2 {
+    font-size: 28px;
+  }
+}

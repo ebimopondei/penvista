@@ -1,0 +1,135 @@
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import './ProgramsSection.css';
+
+const citizenshipPrograms = [
+  {
+    country: 'Antigua & Barbuda',
+    flag: '🇦🇬',
+    image: 'https://images.unsplash.com/photo-1548574505-12caf005088c?q=80&w=600&auto=format&fit=crop',
+    description: 'Visa-free travel to 150+ countries. Processing timeline: 3-4 months',
+  },
+  {
+    country: 'Dominica',
+    flag: '🇩🇲',
+    image: 'https://images.unsplash.com/photo-1563725178523-8686f370fa42?q=80&w=600&auto=format&fit=crop',
+    description: 'Visa-free travel to 140+ countries. Processing timeline: 3-4 months',
+  }
+];
+
+const residencyPrograms = [
+  {
+    country: 'Greece',
+    flag: '🇬🇷',
+    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=600&auto=format&fit=crop',
+    description: 'Visa-free travel to 26 Schengen countries. Processing timeline: 2-3 months',
+  },
+  {
+    country: 'Portugal',
+    flag: '🇵🇹',
+    image: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=600&auto=format&fit=crop',
+    description: 'Visa-free travel to 26 Schengen countries. Processing timeline: 12-18 months',
+  }
+];
+
+const ProgramsSection = () => {
+  return (
+    <section className="programs">
+      <div className="container">
+        
+        {/* Citizenship Section */}
+        <div className="program-category">
+          <motion.div 
+            className="program-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="section-label">Citizenship by Investment</span>
+            <h2>Secure a powerful second passport through our expertly managed citizenship by investment programs.</h2>
+          </motion.div>
+
+          <div className="programs-grid">
+            {citizenshipPrograms.map((program, index) => (
+              <motion.div 
+                key={index}
+                className="program-card"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <div className="card-image">
+                  <img src={program.image} alt={program.country} />
+                </div>
+                <div className="card-content">
+                  <div className="card-title">
+                    <span className="flag">{program.flag}</span>
+                    <h3>{program.country}</h3>
+                  </div>
+                  <p>{program.description}</p>
+                  <button className="btn-outline card-btn">Explore programme <ArrowRight size={16} /></button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="carousel-controls">
+            <button className="carousel-btn disabled"><ChevronLeft size={20} /></button>
+            <button className="carousel-btn"><ChevronRight size={20} /></button>
+          </div>
+        </div>
+
+        <div className="programs-divider"></div>
+
+        {/* Residency Section */}
+        <div className="program-category">
+          <motion.div 
+            className="program-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="section-label">Residency by Investment</span>
+            <h2>Transform property investments into life-changing residency opportunities across elite global destinations.</h2>
+          </motion.div>
+
+          <div className="programs-grid">
+            {residencyPrograms.map((program, index) => (
+              <motion.div 
+                key={index}
+                className="program-card"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <div className="card-image">
+                  <img src={program.image} alt={program.country} />
+                </div>
+                <div className="card-content">
+                  <div className="card-title">
+                    <span className="flag">{program.flag}</span>
+                    <h3>{program.country}</h3>
+                  </div>
+                  <p>{program.description}</p>
+                  <button className="btn-outline card-btn">Explore programme <ArrowRight size={16} /></button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="carousel-controls">
+            <button className="carousel-btn disabled"><ChevronLeft size={20} /></button>
+            <button className="carousel-btn"><ChevronRight size={20} /></button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default ProgramsSection;
