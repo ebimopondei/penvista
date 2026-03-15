@@ -6,15 +6,15 @@ import './FAQSection.css';
 const faqs = [
   {
     question: "What is citizenship by investment?",
-    answer: "Citizenship by investment programs offer high-net-worth individuals the opportunity to legally acquire a new nationality in return for an investment in the host country's economy."
+    answer: "Citizenship by Investment is a legal process that allows individuals to acquire citizenship in a foreign country by making a significant economic contribution such as an investment in real estate, a national development fund, or government bonds. In return, investors gain the rights and benefits of citizenship including a passport that provides enhanced global mobility and access to new business and personal opportunities."
   },
   {
     question: "Which countries offer citizenship by investment programs?",
-    answer: "Many countries worldwide offer these programs, including Caribbean nations like Antigua & Barbuda, Dominica, St. Kitts & Nevis, as well as European countries like Malta and Turkey."
+    answer: "Popular CBI programs include St. Kitts and Nevis, Dominica, Antigua and Barbuda, Grenada, and Saint Lucia in the Caribbean as well as Malta and Turkey in Europe. Each program varies in terms of investment options, processing times, and benefits."
   },
   {
     question: "How long does it take to acquire a second passport?",
-    answer: "The timeline varies by country, but many Caribbean programs process applications within 3 to 6 months, whereas European programs may require 12 to 24 months."
+    answer: "Processing times vary by country. Some Caribbean programs can be completed in as little as 6-12 months, while European programs may take over 12 months. Factors like due diligence processes and type of investment can affect timelines."
   }
 ];
 
@@ -31,7 +31,7 @@ const FAQSection = () => {
         
         <div className="faq-header">
           <h2>Got questions? <span>We've got answers!</span></h2>
-          <p>We know you may have questions when considering citizenship or residency. Read a quick guide to understanding your options and preparing for your journey. Check out our FAQ below for clear, straightforward answers.</p>
+          <p>Whether you're curious about our services, investment options, or the application process, we have curated answers to help you make informed decisions. Look through the categories below to quickly find the topics that matter most to you!</p>
           
           <div className="faq-tabs">
             <button className="faq-tab active">Citizenship</button>

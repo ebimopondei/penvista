@@ -1,6 +1,7 @@
 import { Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './ContactSection.css';
+import waveImage from '../assets/images/JId6adFK4DyJqJjSgxEvo12YWU.png';
 
 const ContactSection = () => {
   return (
@@ -14,17 +15,13 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2>Take the First Step <span>Towards Global Citizenship!</span></h2>
-          <p>Whether exploring options, ready to apply, or representing an individual, we are here. Fill out the form below, and our experts will help you step into a world of global citizenship.</p>
+          <p>Make an enquiry, and we'll provide expert assistance tailored to your needs. Fill out the form below, and let us help you unlock the benefits of global citizenship today!</p>
         </motion.div>
       </div>
 
-      <div className="contact-wave">
-        <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,0 C240,120 480,120 720,60 C960,0 1200,0 1440,60 L1440,120 L0,120 Z" fill="var(--dark-navy)"></path>
-        </svg>
-      </div>
 
       <div className="contact-form-area">
+          <img src={waveImage} className='contact-wave-image' alt="wave" />
         <div className="container form-container">
           <motion.form 
             className="contact-form"

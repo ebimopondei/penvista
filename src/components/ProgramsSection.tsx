@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './ProgramsSection.css';
 
@@ -8,19 +8,56 @@ const citizenshipPrograms = [
     country: 'Antigua & Barbuda',
     flag: '🇦🇬',
     videoUrl: 'https://www.youtube.com/embed/XqZsoesa55w',
-    description: 'Visa-free travel to 150+ countries. Processing timeline: 3-4 months',
+    thumbnail: 'https://img.youtube.com/vi/XqZsoesa55w/hqdefault.jpg',
+    feature: [
+      "Visa-free travel to 160 Countries",
+      "Minimum Investment $230,000"
+
+    ]
   },
   {
     country: 'Dominica',
     flag: '🇩🇲',
     videoUrl: 'https://www.youtube.com/embed/lFm4s50OpwM',
-    description: 'Visa-free travel to 140+ countries. Processing timeline: 3-4 months',
+    thumbnail: 'https://img.youtube.com/vi/lFm4s50OpwM/hqdefault.jpg',
+    feature: [
+      "Visa Free travel to 156 Countries",
+      "Minimum Investment $200,000"
+    ],
+
+  },
+  {
+    country: 'Grenada',
+    flag: '🇬🇩',
+    videoUrl: 'https://www.youtube.com/embed/jfKfPfyJRdk',
+    thumbnail: 'https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg',
+    feature: [
+      "Visa Free travel to 160 Countries",
+      "Minimum Investment $235,000"
+    ]
+
   },
   {
     country: 'St. Kitts & Nevis',
     flag: '🇰🇳',
     videoUrl: 'https://www.youtube.com/embed/jfKfPfyJRdk',
-    description: 'Visa-free travel to 150+ countries. Processing timeline: 3-4 months',
+    thumbnail: 'https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg',
+    feature: [
+      "Visa Free travel to 160 Countries",
+      "Minimum Investment $235,000"
+    ]
+
+  },
+  {
+    country: 'St. Lucia',
+    flag: '🇱🇨',
+    videoUrl: 'https://www.youtube.com/embed/jfKfPfyJRdk',
+    thumbnail: 'https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg',
+    feature: [
+      "Visa Free travel to 159 Countries",
+      "Minimum Investment $240,000"
+    ]
+
   }
 ];
 
@@ -29,25 +66,53 @@ const residencyPrograms = [
     country: 'Greece',
     flag: '🇬🇷',
     image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=600&auto=format&fit=crop',
-    description: 'Visa-free travel to 26 Schengen countries. Processing timeline: 2-3 months',
+    feature: [
+      "Visa Free travel to 29 Schengen areas",
+      "Minimum Investment $250,000"
+    ],
   },
   {
     country: 'Portugal',
     flag: '🇵🇹',
     image: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=600&auto=format&fit=crop',
-    description: 'Visa-free travel to 26 Schengen countries. Processing timeline: 12-18 months',
+    feature: [
+      "Visa Free travel to 29 Schengen areas",
+      "Minimum Investment $280,000"
+    ],
   },
   {
     country: 'Spain',
     flag: '🇪🇸',
     image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=600&auto=format&fit=crop',
-    description: 'Visa-free travel to 26 Schengen countries. Processing timeline: 5-6 months',
-  }
+    feature: [
+      "Visa Free travel to 29 Schengen areas",
+      "Minimum Investment $500,000"
+    ],
+  },
+  {
+    country: 'Malta',
+    flag: '🇲🇹',
+    image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=600&auto=format&fit=crop',
+    feature: [
+      "Visa Free travel to 29 Schengen areas",
+      "Minimum Investment $150,000"
+    ],
+  },
+  {
+    country: 'United States',
+    flag: '🇺🇸',
+    image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=600&auto=format&fit=crop',
+    feature: [
+      "Visa Free travel to 29 Schengen areas",
+      "Minimum Investment $800,000"
+    ],
+  },
 ];
 
 const ProgramsSection = () => {
   const citizenshipRef = useRef<HTMLDivElement>(null);
   const residencyRef = useRef<HTMLDivElement>(null);
+  const [playingVideos, setPlayingVideos] = useState<{[key: number]: boolean}>({});
 
   const scrollSlider = (ref: React.RefObject<HTMLDivElement>, direction: 'left' | 'right') => {
     if (ref.current) {
@@ -119,7 +184,7 @@ const ProgramsSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="section-label">Citizenship by Investment</span>
-            <h2>Secure a powerful second passport through our expertly managed citizenship by investment programs.</h2>
+            <h2>Secure a powerful second passport through our <span className='sub'>expertly managed citizenship by investment programs.</span></h2>
           </motion.div>
 
           <div className="programs-slider" ref={citizenshipRef}>
@@ -133,19 +198,30 @@ const ProgramsSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <div className="card-video">
-                  <iframe 
-                    src={program.videoUrl} 
-                    title={`${program.country} Program`} 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                  ></iframe>
+                  {!playingVideos[index] ? (
+                    <div className="video-thumbnail" onClick={() => setPlayingVideos({...playingVideos, [index]: true})}>
+                      <img src={program.thumbnail} alt={`${program.country} Video Thumbnail`} />
+                      <div className="play-button-overlay">
+                        <Play size={24} fill="white" color="white" />
+                      </div>
+                    </div>
+                  ) : (
+                    <iframe 
+                      src={`${program.videoUrl}?autoplay=1`} 
+                      title={`${program.country} Program`} 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen
+                    ></iframe>
+                  )}
                 </div>
                 <div className="card-content">
                   <div className="card-title">
                     <span className="flag">{program.flag}</span>
                     <h3>{program.country}</h3>
                   </div>
-                  <p>{program.description}</p>
+                  <p>{program.feature.map((feature, index) => (
+                    <p key={index}>{feature}</p>
+                  ))}</p>
                   <button className="btn-outline card-btn">Explore programme <ArrowRight size={16} /></button>
                 </div>
               </motion.div>
@@ -191,7 +267,9 @@ const ProgramsSection = () => {
                     <span className="flag">{program.flag}</span>
                     <h3>{program.country}</h3>
                   </div>
-                  <p>{program.description}</p>
+                  <p>{program.feature.map((feature, index) => (
+                    <p key={index}>{feature}</p>
+                  ))}</p>
                   <button className="btn-outline card-btn">Explore programme <ArrowRight size={16} /></button>
                 </div>
               </motion.div>

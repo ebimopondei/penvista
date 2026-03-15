@@ -1,0 +1,311 @@
+import { useState } from 'react';
+import { useParams, Navigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Calendar, Download, Home, Flag, Shield, Landmark, Award, Cloud, IdCard, CornerUpRight, CornerUpLeft, Building, Wallet, Receipt, CreditCard, Building2, Mountain, ChevronLeft, ChevronRight } from 'lucide-react';
+import { programsInfo } from '../data/programs';
+import type { ProgramData } from '../data/programs';
+import './ProgramPage.css';
+import Layout from '../components/Layout';
+
+const IconMap: Record<string, any> = {
+  'Passport': Shield,
+  'Home': Home,
+  'Flag': Flag,
+  'Landmark': Landmark,
+  'Calendar': Calendar,
+  'Award': Award,
+  'Cloud': Cloud,
+  'IdCard': IdCard,
+  'CornerUpRight': CornerUpRight,
+  'CornerUpLeft': CornerUpLeft,
+  'Building': Building,
+  'Wallet': Wallet,
+  'Receipt': Receipt,
+  'CreditCard': CreditCard,
+  'Building2': Building2,
+  'MountainSun': Mountain,
+};
+
+const ProgramPage = () => {
+  const { id } = useParams<{ id: string }>();
+  const [activeTab, setActiveTab] = useState('eligibility');
+  const [currentStatIndex, setCurrentStatIndex] = useState(0);
+  
+  // If no ID or ID not found in data, redirect to home
+  if (!id || !programsInfo[id]) {
+    return <Navigate to="/" replace />;
+  }
+
+  const program: ProgramData = programsInfo[id];
+
+  const statsList = [
+    program.stats.countries ? { value: `${program.stats.countries} Countries`, label: 'Visa Free Travel' } : null,
+    program.stats.investment ? { value: program.stats.investment, label: 'Minimum Requirement' } : null,
+    program.stats.months ? { value: program.stats.months, label: 'Processing Time' } : null,
+  ].filter(Boolean) as { value: string, label: string }[];
+
+  const prevStat = () => setCurrentStatIndex(prev => (prev === 0 ? statsList.length - 1 : prev - 1));
+  const nextStat = () => setCurrentStatIndex(prev => (prev === statsList.length - 1 ? 0 : prev + 1));
+
+  return (
+    <Layout>
+      <div className="program-page">
+        {/* Dynamic Hero Section */}
+        <section className="program-hero" style={{ backgroundImage: `url(${program.heroImage})` }}>
+          <div className="hero-overlay"></div>
+          <div className="container program-hero-container">
+            <motion.div 
+              className="badge"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              {program.type === 'citizenship' ? 'Citizenship By Investment' : 'Residency By Investment'}
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              {program.title}
+            </motion.h1>
+            
+            <motion.p
+              className="program-hero-lead"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              {program.heroHeadline}
+            </motion.p>
+            
+            <motion.div
+              className="program-hero-actions"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <button className="btn-primary"><Calendar size={18} /> Schedule a Meeting</button>
+              <button className="btn-outline glass-btn"><Download size={18} /> Download PDF</button>
+            </motion.div>
+          </div>
+          
+          {/* Overlapping Stats Bar */}
+          <div className="container stats-container">
+            <div className="stats-wrapper desktop-stats">
+              {statsList.map((stat, idx) => (
+                <div key={idx} className="stat-card">
+                  <h3>{stat.value}</h3>
+                  <p>{stat.label}</p>
+                </div>
+              ))}
+            </div>
+            
+            {statsList.length > 0 && (
+              <div className="stats-wrapper mobile-stats">
+                <button className="stat-nav-btn" onClick={prevStat}><ChevronLeft size={24} /></button>
+                <div className="stat-content-mobile">
+                  <h3>{statsList[currentStatIndex].value}</h3>
+                  <p>{statsList[currentStatIndex].label}</p>
+                </div>
+                <button className="stat-nav-btn" onClick={nextStat}><ChevronRight size={24} /></button>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section className="program-about-section">
+          <div className="container">
+            <div className="section-header-left">
+              <span className="subtitle-line">About {program.title}</span>
+              <h2>{program.about.content[0]}</h2>
+            </div>
+            
+            <div className="program-about-content">
+              {program.about.content.slice(1).map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+              
+              {program.about.bullets && (
+                <ul className="program-bullets">
+                  {program.about.bullets.map((bullet, idx) => (
+                    <li key={idx}>{bullet}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            <div className="program-cta">
+              <button className="btn-dark"><Calendar size={18} /> Schedule a call</button>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="program-benefits-section">
+          <div className="container">
+            <div className="section-header-left">
+              <span className="subtitle-line">Benefits</span>
+              <h2 style={{ maxWidth: '600px', fontSize: '36px', marginBottom: '40px' }}>
+                Experience the Perks of Citizenship in {program.title}.
+              </h2>
+            </div>
+            
+            <div className="benefits-grid">
+              {program.benefits.map((benefit, index) => {
+                const IconComponent = IconMap[benefit.icon] || Shield;
+                const isEven = index % 2 === 0;
+                
+                return (
+                  <div key={index} className={`benefit-row ${!isEven ? 'reverse' : ''}`}>
+                    <div className="benefit-content">
+                      <div className="benefit-icon">
+                        <IconComponent size={32} />
+                      </div>
+                      <h3>{benefit.title}</h3>
+                      <p>{benefit.description}</p>
+                    </div>
+                    {benefit.image && (
+                      <div className="benefit-image">
+                        <img src={benefit.image} alt={benefit.title} />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Requirements Section */}
+        {program.requirements && (
+          <section className="program-requirements-section">
+            <div className="container">
+              <div className="section-header-left">
+                <h2 style={{ maxWidth: '800px', fontSize: '32px', marginBottom: '40px', color: 'var(--secondary)', lineHeight: '1.4' }}>{program.requirements.description}</h2>
+              </div>
+              
+              <div className="tabs-header">
+                {program.requirements.tabs.map(tab => (
+                  <button 
+                    key={tab.id}
+                    className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
+                    onClick={() => setActiveTab(tab.id)}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="tab-content-area">
+                <AnimatePresence mode="wait">
+                  {program.requirements.tabs.map(tab => (
+                    activeTab === tab.id && (
+                      <motion.div 
+                        key={tab.id}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3 }}
+                        className="requirements-grid"
+                      >
+                        {tab.items.map((item, idx) => {
+                          const IconComponent = IconMap[item.icon] || Award;
+                          return (
+                            <div key={idx} className="requirement-card">
+                              <div className="requirement-icon">
+                                <IconComponent size={36} />
+                              </div>
+                              <h3>{item.title}</h3>
+                              <p style={{ whiteSpace: 'pre-line' }}>{item.description}</p>
+                            </div>
+                          );
+                        })}
+                      </motion.div>
+                    )
+                  ))}
+                </AnimatePresence>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {program.investment && (
+          <section 
+            className="investment-infos program-requirements-section"
+          >
+            <div className='container'>
+              <div className='section-header-left'>
+                <span className="subtitle-line">Investment</span>
+                <h3 className="investment-headline">{program.investment.headline}</h3>
+                <p className="investment-desc">{program.investment.description}</p>
+              </div>
+              
+              <h4 className="investment-options-title">{program.investment.subTitle}</h4>
+              <div className="investment-options-list">
+                {program.investment.bullets?.map((opt, idx) => (
+                  <p key={idx}>{opt}</p>
+                ))}
+              </div>
+
+              <button className="btn-primary mt-4"><Calendar size={18} /> Schedule a call</button>
+            </div>
+          </section>
+        )}
+
+        {/* Process Section */}
+        {program.process && (
+          <section className="program-process-section">
+            <div className="container">
+              <h2 className="text-center section-title">{program.process.title}</h2>
+              
+              <div className="process-grid-container">
+                {/* Visual grid connecting cells */}
+                <div className="process-cell light-cell process-top-left">
+                  <div className="process-cell-content">
+                    {(() => {
+                      const IconComponent = IconMap[program.process.steps[0].icon] || CornerUpRight;
+                      return <IconComponent className="process-icon" size={32} />;
+                    })()}
+                    <h3>{program.process.steps[0].title}</h3>
+                    <p>{program.process.steps[0].description}</p>
+                    <button className="btn-outline-primary"><Download size={16} /> Download PDF</button>
+                  </div>
+                </div>
+                
+                <div className="process-cell dark-cell process-top-right">
+                  <div className="process-time-display">
+                    <span dangerouslySetInnerHTML={{ __html: program.process.steps[0].timeframe.replace(' ', ' <span>') + '</span>' }} />
+                  </div>
+                </div>
+                
+                <div className="process-cell dark-cell process-bottom-left">
+                  <div className="process-time-display">
+                    <span dangerouslySetInnerHTML={{ __html: program.process.steps[1].timeframe.replace(' ', ' <br/><span>') + '</span>' }} />
+                  </div>
+                </div>
+                
+                <div className="process-cell light-cell process-bottom-right">
+                  <div className="process-cell-content">
+                    {(() => {
+                      const IconComponent = IconMap[program.process.steps[1].icon] || CornerUpLeft;
+                      return <IconComponent className="process-icon" size={32} />;
+                    })()}
+                    <h3>{program.process.steps[1].title}</h3>
+                    <p>{program.process.steps[1].description}</p>
+                    <button className="btn-outline-primary"><Download size={16} /> Download PDF</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+      </div>
+    </Layout>
+  );
+};
+
+export default ProgramPage;

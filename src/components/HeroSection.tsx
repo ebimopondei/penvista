@@ -6,7 +6,7 @@ const HeroSection = () => {
   return (
     <section className="hero">
       {/* Background Overlay */}
-      <div className="hero-overlay"></div>
+      {/* <div className="hero-overlay"></div> */}
       
       <div className="container hero-content">
         <motion.div 
@@ -19,11 +19,11 @@ const HeroSection = () => {
           <p>Secure your future with second passports and global residency options.</p>
           
           <div className="hero-actions">
-            <button className="btn-primary">
-              <Calendar size={18} /> Schedule a Meeting
+            <button className="btn-primary ">
+              <Calendar size={18} />  <span className='text-2xl font-bold'>Schedule a Meeting</span>
             </button>
-            <button className="btn-outline hero-btn-outline">
-              <Package size={18} /> Explore Programmes
+            <button className=" hero-btn-outline ">
+              <Package size={18} /> <span className='text-lg font-bold'>Explore Programmes</span>
             </button>
           </div>
         </motion.div>

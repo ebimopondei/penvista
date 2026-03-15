@@ -83,7 +83,7 @@ const Navbar = () => {
                     <h4>The Carribean</h4>
                   </div>
                   <div className="mega-menu-grid citizenship-grid">
-                    <Link to="#" className="mega-card flag-card">
+                    <Link to="/citizenship/antigua-barbuda" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
                       <img src="https://flagcdn.com/w640/ag.png" alt="Antigua & Barbuda" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
@@ -125,16 +125,97 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <a href="#" className="nav-link">Residency <ChevronDown size={14} /></a>
-            <a href="#" className="nav-link">Services <ChevronDown size={14} /></a>
+            <div 
+              className="nav-item-dropdown" 
+              onMouseEnter={() => setActiveDropdown('residency')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <a href="#" className="nav-link">Residency <ChevronDown size={14} className={activeDropdown === 'residency' ? 'rotate-180' : ''} /></a>
+              
+              {/* Mega Menu */}
+              {activeDropdown === 'residency' && (
+                <div className="mega-menu citizenship-menu glass-panel">
+                  <div className="mega-menu-header">
+                    <h4>Europe & America</h4>
+                  </div>
+                  <div className="mega-menu-grid citizenship-grid">
+                    <Link to="/residency/greece" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
+                      <img src="https://flagcdn.com/w640/gr.png" alt="Greece" className="flag-img" />
+                      <div className="flag-texture"></div>
+                      <div className="mega-card-overlay">
+                        <span>Greece</span>
+                      </div>
+                      <div className="flag-icon-expand">
+                        <ArrowUpRight size={14} />
+                      </div>
+                    </Link>
+                    <Link to="/residency/malta" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
+                      <img src="https://flagcdn.com/w640/mt.png" alt="Malta" className="flag-img" />
+                      <div className="flag-texture"></div>
+                      <div className="mega-card-overlay">
+                        <span>Malta</span>
+                      </div>
+                    </Link>
+                    <Link to="/residency/portugal" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
+                      <img src="https://flagcdn.com/w640/pt.png" alt="Portugal" className="flag-img" />
+                      <div className="flag-texture"></div>
+                      <div className="mega-card-overlay">
+                        <span>Portugal</span>
+                      </div>
+                    </Link>
+                    <Link to="/residency/spain" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
+                      <img src="https://flagcdn.com/w640/es.png" alt="Spain" className="flag-img" />
+                      <div className="flag-texture"></div>
+                      <div className="mega-card-overlay">
+                        <span>Spain</span>
+                      </div>
+                    </Link>
+                    <Link to="/residency/united-states" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
+                      <img src="https://flagcdn.com/w640/us.png" alt="United States" className="flag-img" />
+                      <div className="flag-texture"></div>
+                      <div className="mega-card-overlay">
+                        <span>United States</span>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div 
+              className="nav-item-dropdown" 
+              onMouseEnter={() => setActiveDropdown('services')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <Link to="/services" className="nav-link">Services <ChevronDown size={14} className={activeDropdown === 'services' ? 'rotate-180' : ''} /></Link>
+              
+              {/* Mega Menu */}
+              {activeDropdown === 'services' && (
+                <div className="mega-menu services-menu glass-panel">
+                  <div className="mega-menu-grid">
+                    <a href="/services#post-citizenship" className="mega-card service-mega-card" onClick={() => setActiveDropdown(null)}>
+                      <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=600&auto=format&fit=crop" alt="Post Citizenship Support" />
+                      <div className="mega-card-overlay">
+                        <span>Post Citizenship Support</span>
+                      </div>
+                    </a>
+                    <a href="/services#real-estate" className="mega-card service-mega-card" onClick={() => setActiveDropdown(null)}>
+                      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600&auto=format&fit=crop" alt="Real Estate Investment" />
+                      <div className="mega-card-overlay">
+                        <span>Real Estate Investment</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </nav>
 
         {/* CTA & Mobile Toggle */}
         <div className="nav-actions">
-          <a href="#" className="btn-outline contact-btn">
+          <Link to="/contact" className="btn-outline contact-btn">
             <Phone size={16} /> Contact Us
-          </a>
+          </Link>
           <button 
             className="mobile-toggle" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -150,7 +231,7 @@ const Navbar = () => {
           <Link to="/about" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
           <a href="#">Citizenship</a>
           <a href="#">Residency</a>
-          <a href="#">Services</a>
+          <Link to="/services" onClick={() => setMobileMenuOpen(false)}>Services</Link>
         </div>
       )}
     </header>
