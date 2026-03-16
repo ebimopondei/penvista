@@ -1,4 +1,7 @@
 import './Team.css'
+import founderImg from '../assets/images/TXyJMkeKcCVlf3SISCdEsCxqs.png';
+import legalAdviserImg from '../assets/images/4hwHwPbuTxRkK1rqVZKzSuzPShA.jpg';
+import advisoryImg from '../assets/images/F2HLUmWsqVXQ52c5OWKhq7Fvs.png';
 export default function Team (){
     return (
         <section className="about-team-section">
@@ -23,7 +26,7 @@ export default function Team (){
                 <div className="team-name">Joy Afegbua, Managing Director</div>
               </div>
               <div className="team-image">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Joy Afegbua" />
+                <img src={founderImg} alt="Joy Afegbua" />
               </div>
             </div>
 
@@ -31,7 +34,7 @@ export default function Team (){
             <div className="team-department">
               <h3><strong>Legal</strong> Team</h3>
             </div>
-            <div className="team-member-row reverse">
+            <div className="team-member-row">
               <div className="team-text">
                 <span className="quote-icon start">“</span>
                 <p>
@@ -47,7 +50,7 @@ export default function Team (){
                 <div className="team-name">Izunna L. Emecha, Legal Advisor</div>
               </div>
               <div className="team-image">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Izunna Lawrence Emecheta" />
+                <img src={legalAdviserImg} alt="Izunna Lawrence Emecheta" />
               </div>
             </div>
 
@@ -68,7 +71,7 @@ export default function Team (){
                 <div className="team-name">Ugo Obi, Chief Advisor</div>
               </div>
               <div className="team-image">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" alt="Ugo Obi" />
+                <img src={advisoryImg} alt="Ugo Obi" />
               </div>
             </div>
           </div>

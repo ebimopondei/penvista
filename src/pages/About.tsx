@@ -9,6 +9,7 @@ import Metrics from '../components/Metrics';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ContactSection from '../components/ContactSection';
 import FAQSection from '../components/FAQSection';
+import WhyPenvista from '../components/WhyPenvista';
 
 const About = () => {
   return (
@@ -18,6 +19,7 @@ const About = () => {
         <AboutInroSection />
         <Services />
         <MissionAndVision />
+        <WhyPenvista />
         <Team />
         <Metrics />
         <TestimonialsSection />

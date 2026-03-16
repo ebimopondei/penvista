@@ -1,11 +1,11 @@
 .programs {
-  padding-top: 100px; /* Offset for hero overlap */
+  padding-top: 100px;
+  /* Offset for hero overlap */
   background-color: var(--bg-white);
 }
 
 .program-category {
   margin-bottom: 80px;
-  margin-top: 80px;
 }
 
 .program-header {
@@ -29,7 +29,8 @@ h2 .sub {
   font-weight: 400;
 }
 
-.section-label::before, .section-label::after {
+.section-label::before,
+.section-label::after {
   content: '';
   display: inline-block;
   width: 40px;
@@ -67,31 +68,34 @@ h2 .sub {
   background: white;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--border-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .program-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-.card-image, .card-video {
+.card-image,
+.card-video {
   height: 240px;
   width: 100%;
   overflow: hidden;
   position: relative;
 }
 
-.card-image img, .card-video iframe {
+.card-image img,
+.card-video iframe {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border: none;
 }
 
-.card-image img, .video-thumbnail img {
+.card-image img,
+.video-thumbnail img {
   transition: transform 0.5s ease;
 }
 
@@ -152,7 +156,7 @@ h2 .sub {
   margin: 0;
 }
 
-.card-content > p {
+.card-content p {
   color: var(--text-muted);
   font-size: 16px;
   margin-bottom: 24px;
@@ -230,7 +234,7 @@ h2 .sub {
 .stat-card {
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   background: transparent;
@@ -247,9 +251,8 @@ h2 .sub {
 .stat-card-top h3 {
   font-size: 32px;
   color: white;
-  font-weight: 900;
   margin: 0;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .stat-card-bottom p {
@@ -264,14 +267,18 @@ h2 .sub {
   .programs-slider {
     gap: 16px;
   }
+
   .program-card {
     flex: 0 0 100%;
     min-width: unset;
   }
+
   .program-header h2 {
     font-size: 24px;
   }
-  .section-label::before, .section-label::after {
+
+  .section-label::before,
+  .section-label::after {
     width: 20px;
     margin: 0 8px;
   }
@@ -282,32 +289,34 @@ h2 .sub {
     top: 0;
   }
 
-  .hero-stats { 
+  .hero-stats {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 16px;
-    padding-bottom: 24px; /* affordance for scrollbar/shadows */
+    padding-bottom: 24px;
+    /* affordance for scrollbar/shadows */
     scrollbar-width: none;
   }
+
   .hero-stats::-webkit-scrollbar {
     display: none;
   }
 
-  .stat-card { 
+  .stat-card {
     min-width: 85%;
     scroll-snap-align: center;
     border: 1px solid var(--border-color);
     background: white;
   }
-  
+
   .stat-card-top {
     background: white;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     padding: 32px 24px 8px;
   }
-  
+
   .stat-card-top h3 {
     color: var(--dark-navy);
     text-shadow: none;
@@ -319,6 +328,7 @@ h2 .sub {
   .hero-stats {
     gap: 16px;
   }
+
   .stat-card-top h3 {
     font-size: 28px;
   }

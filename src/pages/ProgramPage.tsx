@@ -52,9 +52,8 @@ const ProgramPage = () => {
   return (
     <Layout>
       <div className="program-page">
-        {/* Dynamic Hero Section */}
+        {/* Dynamic Hero Section */}  
         <section className="program-hero" style={{ backgroundImage: `url(${program.heroImage})` }}>
-          <div className="hero-overlay"></div>
           <div className="container program-hero-container">
             <motion.div 
               className="badge"
@@ -104,7 +103,7 @@ const ProgramPage = () => {
               ))}
             </div>
             
-            {statsList.length > 0 && (
+            {/* {statsList.length > 0 && (
               <div className="stats-wrapper mobile-stats">
                 <button className="stat-nav-btn" onClick={prevStat}><ChevronLeft size={24} /></button>
                 <div className="stat-content-mobile">
@@ -113,7 +112,7 @@ const ProgramPage = () => {
                 </div>
                 <button className="stat-nav-btn" onClick={nextStat}><ChevronRight size={24} /></button>
               </div>
-            )}
+            )} */}
           </div>
         </section>
 

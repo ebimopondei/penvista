@@ -5,8 +5,14 @@ import './ProgramsSection.css';
 import antiguaImg from '../assets/images/B4mdtRSgsphYROOzk6tEAsMo17f5.png';
 import dominicaImg from '../assets/images/79GZ2luNSOrtht7JE6RYHJZP84.png';
 import grenadaImg from '../assets/images/l1BroWQMxNSRNqurotOnijLw.png';
-import stKittsImg from '../assets/images/l1BroWQMxNSRNqurotOnijLw.png';
-import stLuciaImg from '../assets/images/DhWEX6HLdXbVVWEVnvlvsjOf8I.png';
+import stKittsImg from '../assets/images/DhWEX6HLdXbVVWEVnvlvsjOf8I.png';
+import stLuciaImg from '../assets/images/9tL3ErS0v9lEFM3XSrpikwZpk.png';
+
+import greeceImg from '../assets/images/7kLScwXLFKhcjCZlcglWH74.png';
+import portugalImg from '../assets/images/F3M7aDYY07HgDkAvSk6A0yAD1XI.png';
+import spainImg from '../assets/images/rf5DFTYMMxVs6bhLZezWZCKmw.png';
+import maltaImg from '../assets/images/4ZOQRvkawpa5y6X61PyAmPnVI.png';
+import usaImg from '../assets/images/2yK4QYT0MgMSMpkdKUK7hGBkg4.png';
 
 const citizenshipPrograms = [
   {
@@ -70,7 +76,8 @@ const residencyPrograms = [
   {
     country: 'Greece',
     flag: '🇬🇷',
-    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=600&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/XqZsoesa55w',
+    thumbnail: greeceImg,
     feature: [
       "Visa Free travel to 29 Schengen areas",
       "Minimum Investment $250,000"
@@ -79,7 +86,8 @@ const residencyPrograms = [
   {
     country: 'Portugal',
     flag: '🇵🇹',
-    image: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=600&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/XqZsoesa55w',
+    thumbnail: portugalImg,
     feature: [
       "Visa Free travel to 29 Schengen areas",
       "Minimum Investment $280,000"
@@ -88,7 +96,8 @@ const residencyPrograms = [
   {
     country: 'Spain',
     flag: '🇪🇸',
-    image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=600&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/XqZsoesa55w',
+    thumbnail: spainImg,
     feature: [
       "Visa Free travel to 29 Schengen areas",
       "Minimum Investment $500,000"
@@ -97,7 +106,8 @@ const residencyPrograms = [
   {
     country: 'Malta',
     flag: '🇲🇹',
-    image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=600&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/XqZsoesa55w',
+    thumbnail: maltaImg,
     feature: [
       "Visa Free travel to 29 Schengen areas",
       "Minimum Investment $150,000"
@@ -106,7 +116,8 @@ const residencyPrograms = [
   {
     country: 'United States',
     flag: '🇺🇸',
-    image: 'https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=600&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/XqZsoesa55w',
+    thumbnail: usaImg,
     feature: [
       "Visa Free travel to 29 Schengen areas",
       "Minimum Investment $800,000"
@@ -264,8 +275,22 @@ const ProgramsSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <div className="card-image">
-                  <img src={program.image} alt={program.country} />
+                <div className="card-video">
+                  {!playingVideos[index] ? (
+                    <div className="video-thumbnail" onClick={() => setPlayingVideos({...playingVideos, [index]: true})}>
+                      <img src={program.thumbnail} alt={`${program.country} Video Thumbnail`} />
+                      <div className="play-button-overlay">
+                        <Play size={24} fill="white" color="white" />
+                      </div>
+                    </div>
+                  ) : (
+                    <iframe 
+                      src={`${program.videoUrl}?autoplay=1`} 
+                      title={`${program.country} Program`} 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen
+                    ></iframe>
+                  )}
                 </div>
                 <div className="card-content">
                   <div className="card-title">

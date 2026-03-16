@@ -3,6 +3,25 @@ import { Menu, X, Phone, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
+import aboutUsImg from '../assets/images/4An3w4Fd6p6btdl6bqIdnFzNrc.png';
+import aboutOurValuesImg from '../assets/images/1aCop2a0TYiA8V50usMqj70NJw.png';
+import aboutOurTeamImg from '../assets/images/pVu2WHc66ylHtC01MPSAuEuRNaI.png';
+
+import antiguaFlagImg from '../assets/images/ZeBZqN8NpXkSxrR6YZlqRycxFU.png';
+import dominicaFlagImg from '../assets/images/wLOsBhANAdRhbfacePHntZzVw.png';
+import grenadaFlagImg from '../assets/images/GEFk6QPCwavYiJ7x8Ae95qlisG8.png';
+import stLuciaFlagImg from '../assets/images/4Myq6r9XpFgPQjwIV9kFlGraZY0.png';
+import stKittsFlagImg from '../assets/images/eeUc1jJ4QnQaRJubkyXP5kmDQ.png';
+
+import spainFlagImg from '../assets/images/4zG3QOk3DC0X8YD5fs44oCSEdQ.png';
+import usaFlagImg from '../assets/images/Du5P7E3cyN63wFuxNpOcIIN1jKg.png';
+import portugalFlagImg from '../assets/images/KQnzZPUhdx66CUFR9kpW4CK63fU.png';
+import greeceFlagImg from '../assets/images/pe6PofMhOLNLYkUoedeCijwzsbc.png';
+import maltaFlagImg from '../assets/images/r8AhRs6cQOyEjxNuqY0KH2p6yw.png';
+
+import postCitizenSupportImg from '../assets/images/1aCop2a0TYiA8V50usMqj70NJw.png';
+import realEstateInvestmentImg from '../assets/images/kBQOMLrGN8EHXcPJTLbpfXAig.png';
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -47,19 +66,19 @@ const Navbar = () => {
                 <div className="mega-menu glass-panel">
                   <div className="mega-menu-grid">
                     <Link to="/about" className="mega-card">
-                      <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop" alt="About Us" />
+                      <img src={aboutUsImg} alt="About Us" />
                       <div className="mega-card-overlay">
                         <span>About Us</span>
                       </div>
                     </Link>
                     <Link to="/about" className="mega-card">
-                      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop" alt="Our Values" />
+                      <img src={aboutOurValuesImg} alt="Our Values" />
                       <div className="mega-card-overlay">
                         <span>Our Values</span>
                       </div>
                     </Link>
                     <Link to="/about" className="mega-card">
-                      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" alt="Our Team" />
+                      <img src={aboutOurTeamImg} alt="Our Team" />
                       <div className="mega-card-overlay">
                         <span>Our Team</span>
                       </div>
@@ -84,7 +103,7 @@ const Navbar = () => {
                   </div>
                   <div className="mega-menu-grid citizenship-grid">
                     <Link to="/citizenship/antigua-barbuda" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
-                      <img src="https://flagcdn.com/w640/ag.png" alt="Antigua & Barbuda" className="flag-img" />
+                      <img src={antiguaFlagImg} alt="Antigua & Barbuda" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>Antigua & Barbuda</span>
@@ -94,28 +113,28 @@ const Navbar = () => {
                       </div>
                     </Link>
                     <Link to="#" className="mega-card flag-card">
-                      <img src="https://flagcdn.com/w640/dm.png" alt="Dominica" className="flag-img" />
+                      <img src={dominicaFlagImg} alt="Dominica" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>Dominica</span>
                       </div>
                     </Link>
                     <Link to="#" className="mega-card flag-card">
-                      <img src="https://flagcdn.com/w640/gd.png" alt="Grenada" className="flag-img" />
+                      <img src={grenadaFlagImg} alt="Grenada" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>Grenada</span>
                       </div>
                     </Link>
                     <Link to="#" className="mega-card flag-card">
-                      <img src="https://flagcdn.com/w640/lc.png" alt="St. Lucia" className="flag-img" />
+                      <img src={stLuciaFlagImg} alt="St. Lucia" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>St. Lucia</span>
                       </div>
                     </Link>
                     <Link to="#" className="mega-card flag-card">
-                      <img src="https://flagcdn.com/w640/kn.png" alt="St Kitts & Nevis" className="flag-img" />
+                      <img src={stKittsFlagImg} alt="St Kitts & Nevis" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>St Kitts & Nevis</span>
@@ -140,7 +159,7 @@ const Navbar = () => {
                   </div>
                   <div className="mega-menu-grid citizenship-grid">
                     <Link to="/residency/greece" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
-                      <img src="https://flagcdn.com/w640/gr.png" alt="Greece" className="flag-img" />
+                      <img src={greeceFlagImg} alt="Greece" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>Greece</span>
@@ -150,28 +169,28 @@ const Navbar = () => {
                       </div>
                     </Link>
                     <Link to="/residency/malta" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
-                      <img src="https://flagcdn.com/w640/mt.png" alt="Malta" className="flag-img" />
+                      <img src={maltaFlagImg} alt="Malta" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>Malta</span>
                       </div>
                     </Link>
                     <Link to="/residency/portugal" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
-                      <img src="https://flagcdn.com/w640/pt.png" alt="Portugal" className="flag-img" />
+                      <img src={portugalFlagImg} alt="Portugal" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>Portugal</span>
                       </div>
                     </Link>
                     <Link to="/residency/spain" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
-                      <img src="https://flagcdn.com/w640/es.png" alt="Spain" className="flag-img" />
+                      <img src={spainFlagImg} alt="Spain" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>Spain</span>
                       </div>
                     </Link>
                     <Link to="/residency/united-states" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
-                      <img src="https://flagcdn.com/w640/us.png" alt="United States" className="flag-img" />
+                      <img src={usaFlagImg} alt="United States" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>United States</span>
@@ -193,13 +212,13 @@ const Navbar = () => {
                 <div className="mega-menu services-menu glass-panel">
                   <div className="mega-menu-grid">
                     <a href="/services#post-citizenship" className="mega-card service-mega-card" onClick={() => setActiveDropdown(null)}>
-                      <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=600&auto=format&fit=crop" alt="Post Citizenship Support" />
+                      <img src={postCitizenSupportImg} alt="Post Citizenship Support" />
                       <div className="mega-card-overlay">
                         <span>Post Citizenship Support</span>
                       </div>
                     </a>
                     <a href="/services#real-estate" className="mega-card service-mega-card" onClick={() => setActiveDropdown(null)}>
-                      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600&auto=format&fit=crop" alt="Real Estate Investment" />
+                      <img src={realEstateInvestmentImg} alt="Real Estate Investment" />
                       <div className="mega-card-overlay">
                         <span>Real Estate Investment</span>
                       </div>

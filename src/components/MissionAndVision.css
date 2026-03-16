@@ -89,8 +89,13 @@
   .split-layout.reverse .split-image,
   
   .split-image.tall, .team-image {
-    min-height: 400px;
+    /* min-height: 400px; */
     height: auto;
+  }
+
+
+  .split-layout.reverse .split-content {
+    order: 1;
   }
 }
 

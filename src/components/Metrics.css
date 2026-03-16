@@ -5,13 +5,15 @@
 }
 
 .metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 48px;
+  justify-content: center;
 }
 
 .metric-item {
   text-align: left; /* Layout is left aligned per mockup */
+  width: 30%;
 }
 
 .metric-icon {
@@ -33,3 +35,9 @@
 }
 
 
+
+@media (max-width: 768px) {
+  .metric-item {
+    width: 100%;
+  }
+}

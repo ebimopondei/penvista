@@ -1,4 +1,7 @@
 import './Services.css';
+import citizenshipImg from '../assets/images/d6TuPDyx56YVai1LFHaRi69xVic17f5.png'
+import residenceImg from '../assets/images/ZXXzqzt64zWukydF6rl1OC4xjI.png'
+import postCitizenshipImg from '../assets/images/7uJ6TyJSkKCYKVY84NfZJz0Alc.png'
 
 export default function Services(){
     return (
@@ -8,10 +11,7 @@ export default function Services(){
             <div className="section-badge">Our Services</div>
           </div>
           <div className="services-grid">
-            <div className="service-card">
-              <div className="service-image">
-                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop" alt="Citizenship by Investment" />
-              </div>
+            <div className="service-card" style={{ backgroundImage: `url(${citizenshipImg})` }}>
               <div className="service-content">
                 <h3>Citizenship by Investment</h3>
                 <p>A process that allows foreign nationals to acquire citizenship in a country through substantial economic investment.</p>
@@ -19,10 +19,7 @@ export default function Services(){
               </div>
             </div>
             
-            <div className="service-card">
-              <div className="service-image">
-                <img src="https://images.unsplash.com/photo-1569098644584-210bcd375b59?q=80&w=600&auto=format&fit=crop" alt="Residence by Investment" />
-              </div>
+            <div className="service-card" style={{ backgroundImage: `url(${residenceImg})` }}>
               <div className="service-content">
                 <h3>Residence by Investment</h3>
                 <p>Investment-based residency pathways allow foreign nationals to secure legal residence permits through qualified economic contributions to their chosen country.</p>
@@ -30,10 +27,7 @@ export default function Services(){
               </div>
             </div>
             
-            <div className="service-card">
-              <div className="service-image">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" alt="Post Citizenship Support" />
-              </div>
+            <div className="service-card" style={{ backgroundImage: `url('${postCitizenshipImg}')` }}>
               <div className="service-content">
                 <h3>Post Citizenship Support</h3>
                 <p>Our post-citizenship care provides dependent registration, banking setup, tax ID services, driving permits, and business incorporation assistance.</p>

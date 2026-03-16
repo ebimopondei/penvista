@@ -1,3 +1,4 @@
+import antiguaBarbudaImg from '../assets/images/Q8ur6Q6zClAnjOLKQnYmoV9F8.png'
 export interface ProgramData {
   id: string;
   type: 'citizenship' | 'residency';
@@ -55,7 +56,7 @@ export const programsInfo: Record<string, ProgramData> = {
     id: 'antigua-barbuda',
     type: 'citizenship',
     title: 'Antigua & Barbuda',
-    heroImage: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2000&auto=format&fit=crop', // A nice Caribbean/Antigua style image
+    heroImage: antiguaBarbudaImg, // A nice Caribbean/Antigua style image
     heroHeadline: 'Antigua & Barbuda passport holders enjoy visa-free travel to 162 countries, including the European Schengen area, the UK, South Africa, Hong Kong, and China.',
     stats: {
       countries: 162,

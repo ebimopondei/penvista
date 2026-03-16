@@ -25,7 +25,7 @@ export default function AboutHeroSection(){
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              We set out to build a better path to global<br />citizenship
+              We set out to build a better path to global citizenship
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
