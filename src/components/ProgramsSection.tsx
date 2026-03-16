@@ -2,13 +2,18 @@ import React, { useRef, useState } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './ProgramsSection.css';
+import antiguaImg from '../assets/images/B4mdtRSgsphYROOzk6tEAsMo17f5.png';
+import dominicaImg from '../assets/images/79GZ2luNSOrtht7JE6RYHJZP84.png';
+import grenadaImg from '../assets/images/l1BroWQMxNSRNqurotOnijLw.png';
+import stKittsImg from '../assets/images/l1BroWQMxNSRNqurotOnijLw.png';
+import stLuciaImg from '../assets/images/DhWEX6HLdXbVVWEVnvlvsjOf8I.png';
 
 const citizenshipPrograms = [
   {
     country: 'Antigua & Barbuda',
     flag: '🇦🇬',
     videoUrl: 'https://www.youtube.com/embed/XqZsoesa55w',
-    thumbnail: 'https://img.youtube.com/vi/XqZsoesa55w/hqdefault.jpg',
+    thumbnail: antiguaImg,
     feature: [
       "Visa-free travel to 160 Countries",
       "Minimum Investment $230,000"
@@ -19,7 +24,7 @@ const citizenshipPrograms = [
     country: 'Dominica',
     flag: '🇩🇲',
     videoUrl: 'https://www.youtube.com/embed/lFm4s50OpwM',
-    thumbnail: 'https://img.youtube.com/vi/lFm4s50OpwM/hqdefault.jpg',
+    thumbnail: dominicaImg,
     feature: [
       "Visa Free travel to 156 Countries",
       "Minimum Investment $200,000"
@@ -30,7 +35,7 @@ const citizenshipPrograms = [
     country: 'Grenada',
     flag: '🇬🇩',
     videoUrl: 'https://www.youtube.com/embed/jfKfPfyJRdk',
-    thumbnail: 'https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg',
+    thumbnail: grenadaImg,
     feature: [
       "Visa Free travel to 160 Countries",
       "Minimum Investment $235,000"
@@ -41,7 +46,7 @@ const citizenshipPrograms = [
     country: 'St. Kitts & Nevis',
     flag: '🇰🇳',
     videoUrl: 'https://www.youtube.com/embed/jfKfPfyJRdk',
-    thumbnail: 'https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg',
+    thumbnail: stKittsImg,
     feature: [
       "Visa Free travel to 160 Countries",
       "Minimum Investment $235,000"
@@ -52,7 +57,7 @@ const citizenshipPrograms = [
     country: 'St. Lucia',
     flag: '🇱🇨',
     videoUrl: 'https://www.youtube.com/embed/jfKfPfyJRdk',
-    thumbnail: 'https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg',
+    thumbnail: stLuciaImg,
     feature: [
       "Visa Free travel to 159 Countries",
       "Minimum Investment $240,000"

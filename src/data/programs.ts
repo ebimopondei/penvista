@@ -134,8 +134,8 @@ export const programsInfo: Record<string, ProgramData> = {
       ]
     },
     investment: {
-      headline: 'Investment Options',
-      description: 'Key eligibility criteria and investment options for the Antigua & Barbuda Citizenship program.',
+      headline: 'The Antigua & Barbuda citizenship program grants passports through qualified economic contributions.',
+      description: 'Since its inception in 2013, the Antigua & Barbuda Citizenship by Investment Program has offered a streamlined pathway to citizenship in a stable and politically secure environment. With a starting investment of $230,000, you can obtain citizenship for a family of up to four, granting access to a powerful passport and a dependable Plan B.',
       subTitle: 'Investment Options',
       bullets: [
         'Purchase approved real estate valued at USD 300,000 or more',
@@ -157,6 +157,12 @@ export const programsInfo: Record<string, ProgramData> = {
           title: 'Application review and submission',
           description: "Achieve peace of mind and tranquility with us. We double-check every detail before submission, making sure your application shines. Our team works closely with Antigua's Citizenship Unit throughout the process, keeping things smooth and on track. Just relax, we've got the details covered.",
           timeframe: 'Months 2 - 4'
+        },
+        {
+          icon: 'CornerUpRight',
+          title: 'Final approval and Visa Issuance',
+          description: "Almost there! Once approved, you'll make the final investment and government payments. Then comes the exciting part, receiving your certificates and brand new Antigua and Barbuda passports.",
+          timeframe: 'Months 6 - 12'
         }
       ]
     }

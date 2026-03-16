@@ -6,6 +6,8 @@ import { programsInfo } from '../data/programs';
 import type { ProgramData } from '../data/programs';
 import './ProgramPage.css';
 import Layout from '../components/Layout';
+import ContactSection from '../components/ContactSection';
+import FAQSection from '../components/FAQSection';
 
 const IconMap: Record<string, any> = {
   'Passport': Shield,
@@ -298,10 +300,33 @@ const ProgramPage = () => {
                     <button className="btn-outline-primary"><Download size={16} /> Download PDF</button>
                   </div>
                 </div>
+
+                <div className="process-cell light-cell process-top-left">
+                  <div className="process-cell-content">
+                    {(() => {
+                      const IconComponent = IconMap[program.process.steps[2].icon] || CornerUpRight;
+                      return <IconComponent className="process-icon" size={32} />;
+                    })()}
+                    <h3>{program.process.steps[2].title}</h3>
+                    <p>{program.process.steps[2].description}</p>
+                    <button className="btn-outline-primary"><Download size={16} /> Download PDF</button>
+                  </div>
+                </div>
+                
+                <div className="process-cell dark-cell process-top-right">
+                  <div className="process-time-display">
+                    <span dangerouslySetInnerHTML={{ __html: program.process.steps[2].timeframe.replace(' ', ' <span>') + '</span>' }} />
+                  </div>
+                </div>
+                
+               
               </div>
             </div>
           </section>
         )}
+
+        <FAQSection />
+        <ContactSection />
 
       </div>
     </Layout>

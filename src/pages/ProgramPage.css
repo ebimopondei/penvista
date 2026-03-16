@@ -396,7 +396,7 @@
 }
 
 .dark-cell {
-  background-color: var(--secondary);
+  background-color: black;
   color: white;
   align-items: center;
   text-align: center;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, Plus, Minus, MoveUpRight } from 'lucide-react';
+import { Calendar, Plus, Minus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '../components/Layout';
 import './Services.css';
