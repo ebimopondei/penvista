@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Download, Home, Flag, Shield, Landmark, Award, Cloud, IdCard, CornerUpRight, CornerUpLeft, Building, Wallet, Receipt, CreditCard, Building2, Mountain, ChevronLeft, ChevronRight } from 'lucide-react';
 import { programsInfo } from '../data/programs';
@@ -87,21 +87,40 @@ const ProgramPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <button className="btn-primary"><Calendar size={18} /> Schedule a Meeting</button>
+              <Link to="https://calendly.com/penvistalimited-info/30min?month=2024-12">
+                <button className="btn-primary"><Calendar size={18} /> Schedule a Meeting</button>
+              </Link>
               <button className="btn-outline glass-btn"><Download size={18} /> Download PDF</button>
             </motion.div>
           </div>
           
           {/* Overlapping Stats Bar */}
-          <div className="container stats-container">
-            <div className="stats-wrapper desktop-stats">
+        </section>
+
+          <div className=" stats-container">
+            <motion.div className="stats-wrappers desktop-statss hero-stats">
               {statsList.map((stat, idx) => (
-                <div key={idx} className="stat-card">
-                  <h3>{stat.value}</h3>
-                  <p>{stat.label}</p>
-                </div>
+                <motion.div 
+                  key={idx} 
+                  className="stat-card" 
+                  initial={{ opacity: 0, y: 30 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  transition={{ duration: 0.8, delay: 0.3 }}>
+                    <h3>{stat.value}</h3>
+                    <p>{stat.label}</p>
+                </motion.div>
               ))}
-            </div>
+
+              {/* Mobile slider controls (visual only since CSS scroll-snap handles interaction natively) */}
+                        <div className="mobile-stats-nav">
+                            <button className="stats-nav-btn prev">
+                              <ChevronLeft size={20} color="white" />
+                            </button>
+                            <button className="stats-nav-btn next">
+                              <ChevronRight size={20} color="white" />
+                            </button>
+                        </div>
+            </motion.div>
             
             {/* {statsList.length > 0 && (
               <div className="stats-wrapper mobile-stats">
@@ -114,8 +133,6 @@ const ProgramPage = () => {
               </div>
             )} */}
           </div>
-        </section>
-
         {/* About Section */}
         <section className="program-about-section">
           <div className="container">
@@ -139,7 +156,9 @@ const ProgramPage = () => {
             </div>
 
             <div className="program-cta">
-              <button className="btn-dark"><Calendar size={18} /> Schedule a call</button>
+              <Link to="https://calendly.com/penvistalimited-info/30min?month=2024-12">
+                <button className="btn-primary"><Calendar size={18} /> Schedule a call</button>
+              </Link>
             </div>
           </div>
         </section>
@@ -185,6 +204,7 @@ const ProgramPage = () => {
           <section className="program-requirements-section">
             <div className="container">
               <div className="section-header-left">
+              <span className="subtitle-line">Requirments</span>
                 <h2 style={{ maxWidth: '800px', fontSize: '32px', marginBottom: '40px', color: 'var(--secondary)', lineHeight: '1.4' }}>{program.requirements.description}</h2>
               </div>
               
@@ -251,7 +271,9 @@ const ProgramPage = () => {
                 ))}
               </div>
 
-              <button className="btn-primary mt-4"><Calendar size={18} /> Schedule a call</button>
+              <Link to="https://calendly.com/penvistalimited-info/30min?month=2024-12">
+                <button className="btn-primary mt-4"><Calendar size={18} /> Schedule a call</button>
+              </Link>
             </div>
           </section>
         )}

@@ -3,12 +3,13 @@ import { Calendar, Plus, Minus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '../components/Layout';
 import './Services.css';
+import heroBg from '../assets/images/3EXtK8R7C1JdCe1QoyHeRWoVSlE.png'
+import supportImg from '../assets/images/9GXSX9aPuZQJvIZbKV6qJUb4r0.png'
+import estateImg from '../assets/images/naLxHncaF14FKKjACoOet8Firk.png'
+import { Link } from 'react-router-dom';
 
 // We'll use unspash images until local assets are confirmed.
-const heroBg = "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1600&auto=format&fit=crop";
-const supportImg = "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop"; 
 // Alternative stamp-like abstract or actual documents: https://images.unsplash.com/photo-1618044733300-9472054094ee
-const estateImg = "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop";
 
 const Services = () => {
   const [openSupportIdx, setOpenSupportIdx] = useState<number | null>(0); // first open by default
@@ -43,7 +44,6 @@ const Services = () => {
         {/* Hero Section */}
         <section className="services-hero-container container">
           <div className="services-hero" style={{ backgroundImage: `url(${heroBg})` }}>
-            <div className="services-hero-overlay"></div>
             <motion.div 
               className="services-hero-content"
               initial={{ opacity: 0, y: 30 }}
@@ -53,9 +53,11 @@ const Services = () => {
               <span className="services-pill">Our Services</span>
               <h1>We offer quality post citizenship services</h1>
               <p>Get in touch with one of our Advisors today. You can book a complimentary 30-minute call to discuss your needs</p>
-              <button className="btn-primary schedule-btn">
-                <Calendar size={18} /> Schedule a Meeting
-              </button>
+              <Link to="https://calendly.com/penvistalimited-info/30min?month=2024-12">
+                <button className="btn-primary schedule-btn">
+                  <Calendar size={18} /> Schedule a Meeting
+                </button>
+              </Link>
             </motion.div>
           </div>
         </section>
@@ -115,9 +117,11 @@ const Services = () => {
               </div>
 
               <div className="svc-cta-wrapper">
+                <Link to="https://calendly.com/penvistalimited-info/30min?month=2024-12">
                  <button className="btn-outline svc-outline-btn">
                    <Calendar size={18} /> Schedule a Meeting
                  </button>
+                </Link>
               </div>
             </motion.div>
 
@@ -196,9 +200,11 @@ const Services = () => {
               </div>
 
               <div className="svc-cta-wrapper">
-                 <button className="btn-outline svc-outline-btn">
-                   <Calendar size={18} /> Schedule a Meeting
-                 </button>
+                <Link to="https://calendly.com/penvistalimited-info/30min?month=2024-12">
+                  <button className="btn-outline svc-outline-btn">
+                    <Calendar size={18} /> Schedule a Meeting
+                  </button>
+                </Link>
               </div>
             </motion.div>
 

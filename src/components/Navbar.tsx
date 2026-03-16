@@ -71,18 +71,18 @@ const Navbar = () => {
                         <span>About Us</span>
                       </div>
                     </Link>
-                    <Link to="/about" className="mega-card">
+                    <a href="/about#our-values" className="mega-card">
                       <img src={aboutOurValuesImg} alt="Our Values" />
                       <div className="mega-card-overlay">
                         <span>Our Values</span>
                       </div>
-                    </Link>
-                    <Link to="/about" className="mega-card">
+                    </a>
+                    <a href="/about#our-team" className="mega-card">
                       <img src={aboutOurTeamImg} alt="Our Team" />
                       <div className="mega-card-overlay">
                         <span>Our Team</span>
                       </div>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               )}
@@ -112,28 +112,28 @@ const Navbar = () => {
                         <ArrowUpRight size={14} />
                       </div>
                     </Link>
-                    <Link to="#" className="mega-card flag-card">
+                    <Link to="/citizenship/dominica" className="mega-card flag-card">
                       <img src={dominicaFlagImg} alt="Dominica" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>Dominica</span>
                       </div>
                     </Link>
-                    <Link to="#" className="mega-card flag-card">
+                    <Link to="/citizenship/grenada" className="mega-card flag-card">
                       <img src={grenadaFlagImg} alt="Grenada" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>Grenada</span>
                       </div>
                     </Link>
-                    <Link to="#" className="mega-card flag-card">
+                    <Link to="/citizenship/st-lucia" className="mega-card flag-card">
                       <img src={stLuciaFlagImg} alt="St. Lucia" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">
                         <span>St. Lucia</span>
                       </div>
                     </Link>
-                    <Link to="#" className="mega-card flag-card">
+                    <Link to="/citizenship/st-kitts" className="mega-card flag-card">
                       <img src={stKittsFlagImg} alt="St Kitts & Nevis" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">

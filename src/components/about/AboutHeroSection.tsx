@@ -2,6 +2,7 @@ import image from '../../assets/images/zXCUeWBk2kmedhzNiDKTosdtdo.png';
 import { motion } from 'framer-motion';
 import { Calendar, Package } from 'lucide-react';
 import './AboutHeroSection.css';
+import { Link } from 'react-router-dom';
 
 export default function AboutHeroSection(){
     return (
@@ -40,8 +41,12 @@ export default function AboutHeroSection(){
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <button className="btn-primary"><Calendar size={18} /> Schedule a Meeting</button>
-              <button className="btn-outline"><Package size={18} /> Explore Programmes</button>
+              <Link to="https://calendly.com/penvistalimited-info/30min?month=2024-12">
+                <button className="btn-primary"><Calendar size={18} /> Schedule a Meeting</button>
+              </Link>
+              <Link to="/about">
+                <button className="btn-outline"><Package size={18} /> Explore Programmes</button>
+              </Link>
             </motion.div>
           </div>
         </div>

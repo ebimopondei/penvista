@@ -4,7 +4,7 @@ import legalAdviserImg from '../assets/images/4hwHwPbuTxRkK1rqVZKzSuzPShA.jpg';
 import advisoryImg from '../assets/images/F2HLUmWsqVXQ52c5OWKhq7Fvs.png';
 export default function Team (){
     return (
-        <section className="about-team-section">
+        <section id='our-team' className="about-team-section">
         <div className="container">
           <div className="section-header center">
             <div className="section-badge">Our Team</div>

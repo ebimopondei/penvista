@@ -2,10 +2,10 @@ import { Mail, Phone, MapPin, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import './Contact.css';
+import bgImage from '../assets/images/I7GjIQbARsN9Omsak972NRF7WQ.png';
 
 // Using a placeholder image for the antique phones background 
 // since it wasn't explicitly found in assets, but we can use an unsplash one for now
-const bgImage = "https://images.unsplash.com/photo-1596704017254-9b121068fb31?q=80&w=1600&auto=format&fit=crop"; 
 // Alternative dark phone: https://images.unsplash.com/photo-1520697830682-8bc617b07c80
 
 const Contact = () => {
@@ -14,7 +14,6 @@ const Contact = () => {
       <div className="contact-page">
         {/* Hero Section */}
         <section className="contact-hero" style={{ backgroundImage: `url(${bgImage})` }}>
-          <div className="contact-hero-overlay"></div>
           <div className="container contact-hero-content">
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -32,6 +31,8 @@ const Contact = () => {
             </motion.p>
           </div>
         </section>
+
+        {/* <svg style={{width: '100%', height: '100%'}} viewBox="0 0 440 120" preserveAspectRatio="none" width="100%" height="100%"><use href="#svg-21099438_1102"></use></svg> */}
 
         {/* Info Cards Section */}
         <section className="contact-info-section container">

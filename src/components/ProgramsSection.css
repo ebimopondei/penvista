@@ -215,17 +215,24 @@ h2 .sub {
 }
 
 /* Floating Stats */
-.stats-container {
+.programs .stats-container {
   padding-bottom: 24px;
+
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 100%;
 }
 
-.hero-stats-wrapper {
+.programs .hero-stats-wrapper {
   position: relative;
   z-index: 2;
   /* margin-bottom: -50px; */
 }
 
-.hero-stats {
+.programs .hero-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -289,7 +296,7 @@ h2 .sub {
     top: 0;
   }
 
-  .hero-stats {
+  .programs .hero-stats {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -299,7 +306,18 @@ h2 .sub {
     scrollbar-width: none;
   }
 
-  .hero-stats::-webkit-scrollbar {
+  .programs .stats-container {
+    /* padding-bottom: 24px; */
+
+    position: relative;
+    /* bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 100%; */
+  }
+
+  .programs .hero-stats::-webkit-scrollbar {
     display: none;
   }
 
@@ -325,7 +343,7 @@ h2 .sub {
 
 
 @media (max-width: 1024px) {
-  .hero-stats {
+  .programs .hero-stats {
     gap: 16px;
   }
 

@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import './ProgramsSection.css';
 import antiguaImg from '../assets/images/B4mdtRSgsphYROOzk6tEAsMo17f5.png';
 import dominicaImg from '../assets/images/79GZ2luNSOrtht7JE6RYHJZP84.png';
-import grenadaImg from '../assets/images/l1BroWQMxNSRNqurotOnijLw.png';
-import stKittsImg from '../assets/images/DhWEX6HLdXbVVWEVnvlvsjOf8I.png';
-import stLuciaImg from '../assets/images/9tL3ErS0v9lEFM3XSrpikwZpk.png';
+import grenadaImg from '../assets/images/LcfkZvpm1r7ud6N5yIrN7gYu7mg.png';
+import stKittsImg from '../assets/images/ZJaa4qJlJW5wL3CtRltsKGjpSOU.png';
+import stLuciaImg from '../assets/images/qOomg3KzwQpLRBEbyFTFqC7t1c.png';
 
 import greeceImg from '../assets/images/7kLScwXLFKhcjCZlcglWH74.png';
 import portugalImg from '../assets/images/F3M7aDYY07HgDkAvSk6A0yAD1XI.png';
-import spainImg from '../assets/images/rf5DFTYMMxVs6bhLZezWZCKmw.png';
-import maltaImg from '../assets/images/4ZOQRvkawpa5y6X61PyAmPnVI.png';
-import usaImg from '../assets/images/2yK4QYT0MgMSMpkdKUK7hGBkg4.png';
+import spainImg from '../assets/images/B01umKNyNbBVvybXP0IFqpGfKg.png';
+import maltaImg from '../assets/images/qVaq9IScnmoZssQCdSQDeXe92w.png';
+import usaImg from '../assets/images/9BTDZfGvRUMLKB3S2fFq8DzC3h8.png';
 
 const citizenshipPrograms = [
   {
@@ -149,30 +149,30 @@ const ProgramsSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="stat-card">
+            <motion.div  className="stat-card" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
               <div className="stat-card-top">
                 <h3>Over 10K +</h3>
               </div>
               <div className="stat-card-bottom">
                 <p>Families Advised</p>
               </div>
-            </div>
-            <div className="stat-card">
+            </motion.div>
+            <motion.div className="stat-card" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
               <div className="stat-card-top">
                 <h3>5 Years</h3>
               </div>
               <div className="stat-card-bottom">
                 <p>In Experience</p>
               </div>
-            </div>
-            <div className="stat-card">
+            </motion.div>
+            <motion.div className="stat-card" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
               <div className="stat-card-top">
                 <h3>100%</h3>
               </div>
               <div className="stat-card-bottom">
                 <p>Success rate</p>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Mobile slider controls (visual only since CSS scroll-snap handles interaction natively) */}

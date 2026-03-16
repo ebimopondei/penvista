@@ -3,7 +3,7 @@ import whyImage from '../assets/images/HO81G6Okts2vZE0Im9MaBBj4JEw.png';
 
 export default function WhyPenvista() {
   return (
-    <section className="why-penvista-section">
+    <section id='our-values' className="why-penvista-section">
       <div className="container">
         <div className="why-penvista-grid">
           <div className="why-penvista-content">

@@ -1,6 +1,7 @@
 import { Calendar, Package } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './HeroSection.css';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -19,12 +20,16 @@ const HeroSection = () => {
           <p>Secure your future with second passports and global residency options.</p>
           
           <div className="hero-actions">
-            <button className="btn-primary ">
-              <Calendar size={18} />  <span className='text-2xl font-bold'>Schedule a Meeting</span>
-            </button>
-            <button className=" hero-btn-outline ">
-              <Package size={18} /> <span className='text-lg font-bold'>Explore Programmes</span>
-            </button>
+            <Link to="https://calendly.com/penvistalimited-info/30min?month=2024-12">
+              <button className="btn-primary ">
+                <Calendar size={18} />  <span className='text-2xl font-bold'>Schedule a Meeting</span>
+              </button>
+            </Link>
+            <Link to="/about">
+              <button className=" hero-btn-outline ">
+                <Package size={18} /> <span className='text-lg font-bold'>Explore Programmes</span>
+              </button>
+            </Link>
           </div>
         </motion.div>
       </div>
