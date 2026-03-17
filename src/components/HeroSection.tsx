@@ -25,11 +25,11 @@ const HeroSection = () => {
                 <Calendar size={18} />  <span className='text-2xl font-bold'>Schedule a Meeting</span>
               </button>
             </Link>
-            <Link to="/about">
+            <a href="#citizenship">
               <button className=" hero-btn-outline ">
                 <Package size={18} /> <span className='text-lg font-bold'>Explore Programmes</span>
               </button>
-            </Link>
+            </a>
           </div>
         </motion.div>
       </div>

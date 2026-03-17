@@ -29,6 +29,7 @@ export interface ProgramData {
   title: string;
   heroImage: string;
   heroHeadline: string;
+  download: string,
   stats: {
     countries?: number;
     investment?: string;
@@ -83,6 +84,7 @@ export const programsInfo: Record<string, ProgramData> =
     title: 'Antigua & Barbuda',
     heroImage: antiguaBarbudaImg, // A nice Caribbean/Antigua style image
     heroHeadline: 'Antigua & Barbuda passport holders enjoy visa-free travel to 162 countries, including the European Schengen area, the UK, South Africa, Hong Kong, and China.',
+    download: 'https://drive.google.com/file/d/1dehcwnAqp2vtS7TeHnS9n9aWfyu5rghE/view',
     stats: {
       countries: 162,
       investment: '$230,000',
@@ -198,6 +200,7 @@ export const programsInfo: Record<string, ProgramData> =
     title: 'Dominica',
     heroImage: dominicaImg, // A nice Caribbean/Antigua style image
     heroHeadline: 'Dominica Citizenship by Investment Program offers visa-free travel to 156 destinations, including the EU, UK, and Hong Kong, with one of the Caribbean’s most affordable entry points.',
+    download: 'https://drive.google.com/file/d/1jT6dmUBv9I--sexyj9wb65V8nHhXANPp/view',
     stats: {
       countries: 156,
       investment: '$200,000',
@@ -313,6 +316,7 @@ export const programsInfo: Record<string, ProgramData> =
     title: 'Grenada',
     heroImage: grenadaImg, // A nice Caribbean/Antigua style image
     heroHeadline: 'Grenada’s Citizenship by Investment Program offers visa-free travel to 160 destinations, including China, Russia, and the EU. This program uniquely provides eligibility for the United States E-2 Investor Visa, unlocking unparalleled global access.',
+    download: 'https://drive.google.com/file/d/1WLhsM0VozQs92DU_NGupSgBNqZsVRpty/view',
     stats: {
       countries: 160,
       investment: '$235,000',
@@ -429,6 +433,7 @@ export const programsInfo: Record<string, ProgramData> =
     title: 'St. Lucia',
     heroImage: stLuciaImg, // A nice Caribbean/Antigua style image
     heroHeadline: 'Saint Lucia’s Citizenship by Investment Program offers visa-free or visa-on-arrival access to 159 countries, including the EU, the UK, and Singapore. This cost-effective program provides a quick pathway to global mobility.',
+    download: 'https://drive.google.com/file/d/1ao2kthsS_MYHQoLjC6i3od0kGSnlCdxo/view',
     stats: {
       countries: 159,
       investment: '$240,000',
@@ -545,6 +550,7 @@ export const programsInfo: Record<string, ProgramData> =
     title: 'St. Kitts & Nevis',
     heroImage: stKittsImg, // A nice Caribbean/Antigua style image
     heroHeadline: 'St. Kitts & Nevis citizenship offers visa-free access to over 166 countries, including the EU, UK, and Singapore. As the Caribbean’s oldest and most established citizenship by investment program.',
+    download: 'https://drive.google.com/file/d/16CbEZratc8t4O9TpWHbzt2r_sonFHSZc/view',
     stats: {
       countries: 166,
       investment: '$250,000',

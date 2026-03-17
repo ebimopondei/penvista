@@ -4,7 +4,7 @@ import ourMissionImg from '../assets/images/cMcih787tiXrnmi5bi07TAlPz2c.jpg';
 
 export default function MissionAndVision(){
     return(
-        <section className="vision-mission-section">
+        <section id='our-vision-mission' className="vision-mission-section">
         <div className="container">
           {/* Vision */}
           <div className="split-layout">

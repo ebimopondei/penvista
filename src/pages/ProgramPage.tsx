@@ -6,8 +6,8 @@ import { programsInfo } from '../data/programs';
 import type { ProgramData } from '../data/programs';
 import './ProgramPage.css';
 import Layout from '../components/Layout';
-import ContactSection from '../components/ContactSection';
 import FAQSection from '../components/FAQSection';
+import ContactSection from '../components/ContactSection';
 
 const IconMap: Record<string, any> = {
   'Passport': Shield,
@@ -31,7 +31,7 @@ const IconMap: Record<string, any> = {
 const ProgramPage = () => {
   const { id } = useParams<{ id: string }>();
   const [activeTab, setActiveTab] = useState('eligibility');
-  const [currentStatIndex, setCurrentStatIndex] = useState(0);
+
   
   // If no ID or ID not found in data, redirect to home
   if (!id || !programsInfo[id]) {
@@ -46,8 +46,7 @@ const ProgramPage = () => {
     program.stats.months ? { value: program.stats.months, label: 'Processing Time' } : null,
   ].filter(Boolean) as { value: string, label: string }[];
 
-  const prevStat = () => setCurrentStatIndex(prev => (prev === 0 ? statsList.length - 1 : prev - 1));
-  const nextStat = () => setCurrentStatIndex(prev => (prev === statsList.length - 1 ? 0 : prev + 1));
+
 
   return (
     <Layout>
@@ -90,7 +89,11 @@ const ProgramPage = () => {
               <Link to="https://calendly.com/penvistalimited-info/30min?month=2024-12">
                 <button className="btn-primary"><Calendar size={18} /> Schedule a Meeting</button>
               </Link>
-              <button className="btn-outline glass-btn"><Download size={18} /> Download PDF</button>
+              <button className="btn-outline glass-btn">
+                <Link target='_blank' to={program.download}>
+                  <Download size={18} /> Download PDF
+                </Link>
+              </button>
             </motion.div>
           </div>
           
@@ -346,10 +349,10 @@ const ProgramPage = () => {
           </section>
         )}
 
-        <FAQSection />
-        <ContactSection />
 
       </div>
+        <FAQSection />
+        <ContactSection />
     </Layout>
   );
 };

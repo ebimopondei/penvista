@@ -1,5 +1,5 @@
 import './WhyPenvista.css';
-import whyImage from '../assets/images/HO81G6Okts2vZE0Im9MaBBj4JEw.png';
+
 
 export default function WhyPenvista() {
   return (

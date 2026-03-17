@@ -189,7 +189,7 @@ const Navbar = () => {
                         <span>Spain</span>
                       </div>
                     </Link>
-                    <Link to="/residency/united-states" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
+                    <Link to="/residency/usa" className="mega-card flag-card" onClick={() => setActiveDropdown(null)}>
                       <img src={usaFlagImg} alt="United States" className="flag-img" />
                       <div className="flag-texture"></div>
                       <div className="mega-card-overlay">

@@ -13,7 +13,7 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  height: 60vh;
+  height: 80vh;
   min-height: 450px;
   background-size: cover;
   background-position: center;
@@ -174,7 +174,9 @@
 
 /* Content Sections */
 .services-content-section {
-  margin-bottom: 120px;
+  margin: 60px auto;
+  max-width: var(--max-width);
+  padding: 0 24px;
 }
 
 .svc-content-grid {
@@ -288,7 +290,6 @@
   .services-hero {
     height: auto;
     padding: 80px 0;
-    border-radius: 0;
   }
   
   .services-hero-content h1 {

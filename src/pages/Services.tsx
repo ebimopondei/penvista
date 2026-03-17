@@ -16,18 +16,18 @@ const Services = () => {
   const [openEstateIdx, setOpenEstateIdx] = useState<number | null>(0);
 
   const supportItems = [
-    { title: "Driver's License", content: "Assistance in acquiring local driving credentials quickly and legally." },
-    { title: "Opening a Bank Account", content: "Expert guidance in opening local corporate and personal bank accounts." },
-    { title: "Tax ID", content: "Procurement of Tax Identification Numbers and advice on tax planning." },
-    { title: "Business Incorporation", content: "End-to-end services to set up your corporate entities seamlessly." },
-    { title: "Post Registration of Qualifying Dependents", content: "Support in extending residency or citizenship benefits to your family members." }
+    { title: "Driver's License", content: "We assist in the processing of Driver’s License, without the need to travel to the home country. As a Government Authorized ID, a local driver's license can also be used as a travel document within countries of the OECS." },
+    { title: "Opening a Bank Account", content: "A Local Bank Account provides citizens with financial security, asset protection and opens opportunities for local investment. We assist citizens with the opening of personal and corporate bank accounts." },
+    { title: "Tax ID", content: "A Tax Identification Number is useful in opening bank accounts internationally, facilitates the import &amp; export of goods in and out of Dominica. Only citizens who are physically present on island, for more than 183 days continuously, are required to file tax returns." },
+    { title: "Business Incorporation", content: "We provide professional advice and assistance with incorporation and registration of Business Name and Local Company Incorporation." },
+    { title: "Post Registration of Qualifying Dependents", content: "i. New born child after citizenship has been gotten by one of the parents or both parents. ii. Spouse after main applicant has gotten citizenship. ii. Registration of Parents, Siblings as a dependent." }
   ];
 
   const estateItems = [
-    { title: "Real Estate", content: "Access exclusive luxury properties and guaranteed rental yield opportunities." },
-    { title: "Diversified Portfolio", content: "Spread your investment across different property types for stable returns." },
-    { title: "Off-shore Investments", content: "Secure offshore real estate opportunities with tax-efficient structures." },
-    { title: "Project Management", content: "Full lifecycle property management, from acquisition to tenanting and maintenance." }
+    { title: "Real Estate", content: "We assist client to source real estate in both local and international locations." },
+    { title: "Diversified Portfolio", content: "We help structure and manage investment portfolios across multiple global markets." },
+    { title: "Off-shore Investments", content: "We provide guidance on international investment opportunities and secure wealth management solutions." },
+    { title: "Project Management", content: "We oversee all aspects of your investment projects from inception to completion." }
   ];
 
   const toggleSupportFn = (idx: number) => {
@@ -64,7 +64,7 @@ const Services = () => {
 
 
         {/* Post Citizenship Support Section */}
-        <section id="post-citizenship" className="services-content-section container">
+        <section id="post-citizenship" className="services-content-section containers">
           <div className="svc-content-grid">
             
             <motion.div 

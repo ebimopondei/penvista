@@ -18,12 +18,18 @@ import spainVisaFree from '../assets/images/5Qgm1MykS1ConBvUD9fWutMJHfU.jpg';
 import spainFamilyInclusion from '../assets/images/3E48OXrFY1Y2ENEhVDYVQXWZxFM.jpg';
 import spainLivingSystem from '../assets/images/BYMbJKNcVPruOgfKZjDyVK0Ccc.png';
 
+import usaImg from '../assets/images/Y3z9MJbqKjNZXvQLShzdOfqd43A.png';
+import usaFavorableTax from '../assets/images/lkbtUEL1iAnaOkRmD1soCCNLxoM.png';
+import usaCitizenship from '../assets/images/PDGBSPENY9Xjpm3yxKKK1ud6o.jpg';
+import usaHealthCare from '../assets/images/7lT3wsT14XXydU6SrT8xasaRUyk.jpg';
+
 export interface ResidenceData {
   id: string;
   type: 'citizenship' | 'residency';
   title: string;
   heroImage: string;
   heroHeadline: string;
+  download: string;
   stats: {
     countries?: number;
     investment?: string;
@@ -78,6 +84,7 @@ export const residenceInfo: Record<string, ResidenceData> =
     type: 'residency',
     heroImage: maltaImg, // A nice Caribbean/Antigua style image
     heroHeadline: "Malta's Residency by Investment Program provides a streamlined pathway to European residency in a strategically located, English-speaking nation. Renowned for its favorable tax system, world-class healthcare, and excellent education opportunities, Malta is a top choice among international investors.",
+    download: 'https://drive.google.com/file/d/1dehcwnAqp2vtS7TeHnS9n9aWfyu5rghE/view?usp=sharing',
     stats: {
       countries: 29, // Over Schengen Visa
       investment: '€150,000',
@@ -196,13 +203,14 @@ export const residenceInfo: Record<string, ResidenceData> =
     type: 'residency',
     heroImage: greeceImg, // A nice Caribbean/Antigua style image
     heroHeadline: "Greece’s Golden Visa program grants residency with an investment of €250,000  in real estate, one of the lowest entry points in Europe. Enjoy a Mediterranean  lifestyle, rich history, and visa-free Schengen access.",
+    download: 'https://drive.google.com/file/d/1jT6dmUBv9I--sexyj9wb65V8nHhXANPp/view',
     stats: {
       countries: 29, // Over Schengen Visa
       investment: '€250,000',
       months: '6 - 12 Months'
     },
     about: {
-      title: 'About Malta',
+      title: 'About Greece',
       content: [
         "This EU member state provides an unparalleled setting for those seeking both a high quality of life and a strategic foothold in Europe.",
         "The Greece Golden Visa program offers an affordable entry to European residency with a minimum real estate investment of €250,000. Known for its ancient history, breathtaking islands, and vibrant culture, Greece provides a blend of tradition and modern living. Residency grants you access to the Schengen Area and the flexibility to live, work, or study in Greece, all within an affordable and investor-friendly framework. Start your journey to Greek residency and immerse yourself in the timeless beauty and warm hospitality of Greece."
@@ -314,19 +322,17 @@ export const residenceInfo: Record<string, ResidenceData> =
     type: 'residency',
     heroImage: portugalImg, // A nice Caribbean/Antigua style image
     heroHeadline: "Portugal's Golden Visa program offers residency through investments starting at just €280,000. Enjoy a superior quality of life, world-class healthcare, and seamless visa-free travel across the Schengen Area.",
-    stats: {
+    download: 'https://drive.google.com/file/d/1jT6dmUBv9I--sexyj9wb65V8nHhXANPp/view',stats: {
       countries: 29, // Over Schengen Visa
       investment: '€280,000',
       months: '24 - 30 Months'
     },
     about: {
-      title: 'About Malta',
+      title: 'About Portugal',
       content: [
         "Experience the charm of Iberian living and secure your Portuguese residency, making Portugal your gateway to Europe.",
         "Portugal's Golden Visa program is one of Europe's most sought-after residency options, offering a straightforward path to residency through a variety of investments starting at just €280,000. Known for its warm climate, welcoming locals, and dynamic cities like Lisbon and Porto, Portugal combines affordability with top-tier healthcare and a vibrant lifestyle.",
         "Residency also grants you visa-free access to the Schengen Zone, making Portugal an ideal hub for European travel. Secure your Portuguese residency and embrace life in one of the world's most desirable destinations.",
-        
-
       ],
       bullets: [
         "The capital of the country is Lisbon",
@@ -435,23 +441,18 @@ export const residenceInfo: Record<string, ResidenceData> =
     type: 'residency',
     heroImage: spainImg, // A nice Caribbean/Antigua style image
     heroHeadline: "Spain’s Golden Visa program offers residency through a minimum €500,000 real estate investment, granting you visa-free access to the Schengen Area. With its Mediterranean climate, vibrant culture, and exceptional quality of life, Spain stands out as an ideal destination for residency.",
+    download: 'https://drive.google.com/file/d/1jT6dmUBv9I--sexyj9wb65V8nHhXANPp/view',
     stats: {
       countries: 29, // Over Schengen Visa
       investment: '€500,000',
       months: '5 - 7 Months'
     },
     about: {
-      title: 'About Malta',
+      title: 'About Spain',
       content: [
         "Immerse yourself in the vibrant Iberian lifestyle and secure your Spanish residency, making Spain your gateway to Europe.",
         "Spain’s Golden Visa program offers a seamless pathway to residency in one of Europe’s most captivating and culturally diverse nations. Renowned for its stunning Mediterranean coastline, exceptional healthcare, and iconic cuisine, Spain blends modern living with timeless traditions.",
         "With a minimum real estate investment of €500,000, the program provides immediate residency benefits for you and your family, including visa-free travel across the Schengen Area. Make Spain your second home and embrace its vibrant, cosmopolitan lifestyle.",
-
-        "Experience the charm of Iberian living and secure your Portuguese residency, making Portugal your gateway to Europe.",
-        "Portugal's Golden Visa program is one of Europe's most sought-after residency options, offering a straightforward path to residency through a variety of investments starting at just €280,000. Known for its warm climate, welcoming locals, and dynamic cities like Lisbon and Porto, Portugal combines affordability with top-tier healthcare and a vibrant lifestyle.",
-        "Residency also grants you visa-free access to the Schengen Zone, making Portugal an ideal hub for European travel. Secure your Portuguese residency and embrace life in one of the world's most desirable destinations.",
-        
-
       ],
       bullets: [
         "The capital of the country is Madrid",
@@ -551,6 +552,126 @@ export const residenceInfo: Record<string, ResidenceData> =
           title: 'Visa Issuance',
           description: "The Golden Visa Program permit is issued, granting residency benefits.",
           timeframe: 'Year 3 - 5'
+        }
+      ]
+    }
+  },
+  'usa': {
+    title: 'United States of America',
+    id: 'usa',
+    type: 'residency',
+    heroImage: usaImg, // A nice Caribbean/Antigua style image
+    heroHeadline: "The United States EB-5 Immigrant Investor Program offers a straightforward path to permanent residency with a minimum investment of $800,000 in a U.S.-based business. ",
+    download: '',
+    stats: {
+      countries: 29, // Over Schengen Visa
+      investment: '$800,000',
+      months: '12 - 24 Months'
+    },
+    about: {
+      title: 'About USA',
+      content: [
+        "Turn your American Dream into reality by securing residency through the EB-5 Immigrant Investor Program.",
+        "The U.S. EB-5 Immigrant Investor Program offers an efficient and direct pathway to permanent residency (Green Card) for investors and their families. With a minimum investment of $800,000 in a U.S.-based business, applicants can enjoy the benefits of residing in one of the world's most dynamic economies. From world-class education and healthcare to endless business opportunities, the EB-5 Program provides families with a brighter future and financial growth",
+      ],
+      bullets: [
+        "The capital of the country is Washington, DC",
+        "The currency is Dollar ",
+        "The current population is Approximately 331 million",
+        
+      ]
+    },
+    benefits: [
+      {
+        title: "Favorable Tax Opportunities",
+        description: "Reside in U.S. states with no state-level income tax, including Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, and Wyoming",
+        icon: "Flag",
+        image: usaFavorableTax
+
+      },
+      {
+        title: "Path to U.S. Citizenship",
+        description: "After five years of permanent residency, you can apply for full U.S. citizenship, securing your long-term future.",
+        icon: "Home",
+        image: usaCitizenship
+      },
+      {
+        title: "Access World-Class Health Care",
+        description: "The U.S. offers advanced medical facilities, top universities, and private schools, providing access to exceptional education and healthcare systems.",
+        icon: "Flag",
+        image: usaHealthCare
+      },
+      
+    ],
+    requirements: {
+      description: "Key eligibility criteria and investment options for USA's U.S. EB-5 Immigrant Investor Program",
+      tabs: [
+        {
+          id: 'eligibility',
+          label: 'Application Eligibility',
+          items: [
+            { icon: 'Calendar', title: 'Age', description: '18 years or older' },
+            { icon: 'Award', title: 'License', description: 'Valid proof of financial commitment' },
+            { icon: 'Cloud', title: 'Records', description: 'Clean criminal record' },
+            { icon: 'IdCard', title: 'Identification', description: 'Valid passport' }
+          ]
+        },
+        {
+          id: 'investment',
+          label: 'Investment Options',
+          items: [
+            { icon: 'Building', title: 'Real Estate', description: 'Invest in commercial real estate developments Contribute to large-scale real estate projects' },
+            { icon: 'Wallet', title: 'Capital Transfer', description: 'Invest $800,000 into U.S.-based business Invest into a Regional Center program Investment directly into a U.S.-based business' }
+          ]
+        },
+        {
+          id: 'requirement',
+          label: 'Requirement',
+          items: [
+            { icon: 'Receipt', title: 'Make a Purchase', description: 'Minimum of $800,000 investment in a qualifying U.S. business.' },
+            { icon: 'CreditCard', title: 'Make a Transfer', description: 'Contribute funds into the designated U.S. Regional Center.' }
+          ]
+        },
+        {
+          id: 'renewal',
+          label: 'Renewal Conditions',
+          items: [
+            { icon: 'Building2', title: 'Investment', description: 'Maintain the $800,000 investment' },
+            { icon: 'MountainSun', title: 'Residency', description: 'Meet all the Green Card requirements' }
+          ]
+        }
+      ]
+    },
+    investment: {
+      headline: "Unlock Opportunities with the USA Residency by Investment Program",
+      description: "The United States EB-5 Immigrant Investor Program offers lucrative investment pathways that pave the way for permanent residency while granting access to one of the world's most dynamic and opportunity-rich economies.",
+      subTitle: 'Investment Options',
+      bullets: [
+        "Invest $800,000 into a qualifying U.S.-based business.",
+        "Invest $800,000 into a qualifying U.S.-based business.",
+
+      ]
+    },
+    process: {
+      title: 'Our Process',
+      steps: [
+        {
+          icon: 'CornerUpRight',
+          title: 'Preparation',
+          description: "Initial application steps are completed, with the investment established and financial commitments finalized.",
+          timeframe: 'Month 1 - 6'
+        },
+        {
+          icon: 'CornerUpLeft',
+          title: 'Application review and submission',
+          description: "The U.S. Citizenship and Immigration Services (USCIS) processes the application, and the investor undergoes the required due diligence.",
+          timeframe: 'Months 2 - 24'
+        },
+        {
+          icon: 'CornerUpRight',
+          title: 'Visa Issuance',
+          description: "The Green Card is issued upon successful approval of the investment and all application requirements",
+          timeframe: 'Year 2 - 3'
         }
       ]
     }

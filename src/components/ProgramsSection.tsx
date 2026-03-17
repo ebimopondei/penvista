@@ -13,8 +13,16 @@ import portugalImg from '../assets/images/F3M7aDYY07HgDkAvSk6A0yAD1XI.png';
 import spainImg from '../assets/images/B01umKNyNbBVvybXP0IFqpGfKg.png';
 import maltaImg from '../assets/images/qVaq9IScnmoZssQCdSQDeXe92w.png';
 import usaImg from '../assets/images/9BTDZfGvRUMLKB3S2fFq8DzC3h8.png';
-
-const citizenshipPrograms = [
+import { Link } from 'react-router-dom';
+interface programs {
+    country: string;
+    flag: string;
+    videoUrl: string;
+    thumbnail: string;
+    feature: string[];
+    link: string;
+}
+const citizenshipPrograms: programs[] = [
   {
     country: 'Antigua & Barbuda',
     flag: '🇦🇬',
@@ -24,7 +32,8 @@ const citizenshipPrograms = [
       "Visa-free travel to 160 Countries",
       "Minimum Investment $230,000"
 
-    ]
+    ],
+    link: "antigua-barbuda"
   },
   {
     country: 'Dominica',
@@ -35,6 +44,7 @@ const citizenshipPrograms = [
       "Visa Free travel to 156 Countries",
       "Minimum Investment $200,000"
     ],
+    link: "dominica"
 
   },
   {
@@ -45,7 +55,8 @@ const citizenshipPrograms = [
     feature: [
       "Visa Free travel to 160 Countries",
       "Minimum Investment $235,000"
-    ]
+    ],
+    link: "grenada"
 
   },
   {
@@ -56,7 +67,8 @@ const citizenshipPrograms = [
     feature: [
       "Visa Free travel to 160 Countries",
       "Minimum Investment $235,000"
-    ]
+    ],
+    link: "st-kitts"
 
   },
   {
@@ -67,12 +79,13 @@ const citizenshipPrograms = [
     feature: [
       "Visa Free travel to 159 Countries",
       "Minimum Investment $240,000"
-    ]
+    ],
+    link: "st-lucia"
 
   }
 ];
 
-const residencyPrograms = [
+const residencyPrograms: programs[] = [
   {
     country: 'Greece',
     flag: '🇬🇷',
@@ -82,6 +95,7 @@ const residencyPrograms = [
       "Visa Free travel to 29 Schengen areas",
       "Minimum Investment $250,000"
     ],
+    link: "greece"
   },
   {
     country: 'Portugal',
@@ -92,6 +106,7 @@ const residencyPrograms = [
       "Visa Free travel to 29 Schengen areas",
       "Minimum Investment $280,000"
     ],
+    link: "portugal"
   },
   {
     country: 'Spain',
@@ -102,6 +117,7 @@ const residencyPrograms = [
       "Visa Free travel to 29 Schengen areas",
       "Minimum Investment $500,000"
     ],
+    link: "spain"
   },
   {
     country: 'Malta',
@@ -112,6 +128,7 @@ const residencyPrograms = [
       "Visa Free travel to 29 Schengen areas",
       "Minimum Investment $150,000"
     ],
+    link: "malta"
   },
   {
     country: 'United States',
@@ -122,6 +139,7 @@ const residencyPrograms = [
       "Visa Free travel to 29 Schengen areas",
       "Minimum Investment $800,000"
     ],
+    link: "usa"
   },
 ];
 
@@ -191,7 +209,7 @@ const ProgramsSection = () => {
       <div className="container">
         
         {/* Citizenship Section */}
-        <div className="program-category">
+        <div id='citizenship' className="program-category">
           <motion.div 
             className="program-header"
             initial={{ opacity: 0, y: 30 }}
@@ -238,7 +256,11 @@ const ProgramsSection = () => {
                   <p>{program.feature.map((feature, index) => (
                     <p key={index}>{feature}</p>
                   ))}</p>
-                  <button className="btn-outline card-btn">Explore programme <ArrowRight size={16} /></button>
+                  <button className="btn-outline card-btn">
+                    <Link to={`/citizenship/${program.link}`}>
+                      Explore programme <ArrowRight size={16} />
+                    </Link>
+                  </button>
                 </div>
               </motion.div>
             ))}
@@ -253,7 +275,7 @@ const ProgramsSection = () => {
         <div className="programs-divider"></div>
 
         {/* Residency Section */}
-        <div className="program-category">
+        <div id='residency' className="program-category">
           <motion.div 
             className="program-header"
             initial={{ opacity: 0, y: 30 }}
@@ -300,7 +322,11 @@ const ProgramsSection = () => {
                   <p>{program.feature.map((feature, index) => (
                     <p key={index}>{feature}</p>
                   ))}</p>
-                  <button className="btn-outline card-btn">Explore programme <ArrowRight size={16} /></button>
+                  <button className="btn-outline card-btn">
+                    <Link to={`/residency/${program.link}`}>
+                      Explore programme <ArrowRight size={16} />
+                    </Link>
+                  </button>
                 </div>
               </motion.div>
             ))}

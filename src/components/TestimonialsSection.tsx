@@ -31,7 +31,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="testimonials">
+    <section id='testimonnials' className="testimonials">
       <div className="container">
         
         <div className="testimonials-header">
