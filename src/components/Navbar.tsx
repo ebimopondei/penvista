@@ -22,6 +22,7 @@ import maltaFlagImg from '../assets/images/r8AhRs6cQOyEjxNuqY0KH2p6yw.png';
 import postCitizenSupportImg from '../assets/images/1aCop2a0TYiA8V50usMqj70NJw.png';
 import realEstateInvestmentImg from '../assets/images/kBQOMLrGN8EHXcPJTLbpfXAig.png';
 
+import logo from '../assets/images/LEQ72kcY1q7YhhSNOjk1Fl5OKnM.svg';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -43,11 +44,7 @@ const Navbar = () => {
       <div className="container nav-container">
         {/* Logo */}
         <Link to="/" className="logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--primary)" />
-            <path d="M2 17L12 22L22 17" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M2 12L12 17L22 12" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <img src={logo} alt="" />
           <span className="logo-text">PENVISTA</span>
         </Link>
 

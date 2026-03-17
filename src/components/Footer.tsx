@@ -1,6 +1,7 @@
 import { Linkedin, Mail, Phone } from 'lucide-react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
+import logo from '../assets/images/LEQ72kcY1q7YhhSNOjk1Fl5OKnM.svg';
 
 const Footer = () => {
   return (
@@ -10,11 +11,7 @@ const Footer = () => {
           
           <div className="footer-brand">
             <Link to="/" className="logo footer-logo">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--primary)" />
-                <path d="M2 17L12 22L22 17" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M2 12L12 17L22 12" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <img src={logo} alt='logo' />
               <span className="logo-text">PENVISTA</span>
             </Link>
             <p className="brand-address">6 Sirakoro Street off Blantyre street, Wuse II, Abuja,Nigeria.</p>
