@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Download, Home, Flag, Shield, Landmark, Award, Cloud, IdCard, CornerUpRight, CornerUpLeft, Building, Wallet, Receipt, CreditCard, Building2, Mountain, ChevronLeft, ChevronRight } from 'lucide-react';
 import { programsInfo } from '../data/programs';
 import type { ProgramData } from '../data/programs';
@@ -28,9 +26,26 @@ const IconMap: Record<string, any> = {
   'MountainSun': Mountain,
 };
 
+const handleTabClick = (e: React.MouseEvent<HTMLButtonElement>, tabId: string) => {
+  const section = e.currentTarget.closest('.program-requirements-section');
+  if (!section) return;
+
+  // Update active tab button
+  section.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  e.currentTarget.classList.add('active');
+
+  // Show matching tab content
+  section.querySelectorAll('.tab-panel').forEach(panel => {
+    if (panel.getAttribute('data-tab') === tabId) {
+      panel.classList.add('active');
+    } else {
+      panel.classList.remove('active');
+    }
+  });
+};
+
 const ProgramPage = () => {
   const { id } = useParams<{ id: string }>();
-  const [activeTab, setActiveTab] = useState('eligibility');
 
   
   // If no ID or ID not found in data, redirect to home
@@ -54,38 +69,19 @@ const ProgramPage = () => {
         {/* Dynamic Hero Section */}  
         <section className="program-hero" style={{ backgroundImage: `url(${program.heroImage})` }}>
           <div className="container program-hero-container">
-            <motion.div 
-              className="badge"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+            <div className="badge anim-slide-up">
               {program.type === 'citizenship' ? 'Citizenship By Investment' : 'Residency By Investment'}
-            </motion.div>
+            </div>
             
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-            >
+            <h1 className="anim-slide-up-d1">
               {program.title}
-            </motion.h1>
+            </h1>
             
-            <motion.p
-              className="program-hero-lead"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
+            <p className="program-hero-lead anim-slide-up-d2">
               {program.heroHeadline}
-            </motion.p>
+            </p>
             
-            <motion.div
-              className="program-hero-actions"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
+            <div className="program-hero-actions anim-slide-up-d3">
               <Link to="https://calendly.com/penvistalimited-info/30min?month=2024-12">
                 <button className="btn-primary"><Calendar size={18} /> Schedule a Meeting</button>
               </Link>
@@ -94,47 +90,33 @@ const ProgramPage = () => {
                   <Download size={18} /> Download PDF
                 </Link>
               </button>
-            </motion.div>
+            </div>
           </div>
           
           {/* Overlapping Stats Bar */}
         </section>
 
           <div className=" stats-container">
-            <motion.div className="stats-wrappers desktop-statss hero-stats">
+            <div className="stats-wrappers desktop-statss hero-stats">
               {statsList.map((stat, idx) => (
-                <motion.div 
+                <div 
                   key={idx} 
-                  className="stat-card" 
-                  initial={{ opacity: 0, y: 30 }} 
-                  animate={{ opacity: 1, y: 0 }} 
-                  transition={{ duration: 0.8, delay: 0.3 }}>
+                  className="stat-card anim-slide-up-d3">
                     <h3>{stat.value}</h3>
                     <p>{stat.label}</p>
-                </motion.div>
+                </div>
               ))}
 
-              {/* Mobile slider controls (visual only since CSS scroll-snap handles interaction natively) */}
-                        <div className="mobile-stats-nav">
-                            <button className="stats-nav-btn prev">
-                              <ChevronLeft size={20} color="white" />
-                            </button>
-                            <button className="stats-nav-btn next">
-                              <ChevronRight size={20} color="white" />
-                            </button>
-                        </div>
-            </motion.div>
-            
-            {/* {statsList.length > 0 && (
-              <div className="stats-wrapper mobile-stats">
-                <button className="stat-nav-btn" onClick={prevStat}><ChevronLeft size={24} /></button>
-                <div className="stat-content-mobile">
-                  <h3>{statsList[currentStatIndex].value}</h3>
-                  <p>{statsList[currentStatIndex].label}</p>
-                </div>
-                <button className="stat-nav-btn" onClick={nextStat}><ChevronRight size={24} /></button>
+              {/* Mobile slider controls */}
+              <div className="mobile-stats-nav">
+                <button className="stats-nav-btn prev">
+                  <ChevronLeft size={20} color="white" />
+                </button>
+                <button className="stats-nav-btn next">
+                  <ChevronRight size={20} color="white" />
+                </button>
               </div>
-            )} */}
+            </div>
           </div>
         {/* About Section */}
         <section className="program-about-section">
@@ -212,11 +194,11 @@ const ProgramPage = () => {
               </div>
               
               <div className="tabs-header">
-                {program.requirements.tabs.map(tab => (
+                {program.requirements.tabs.map((tab, idx) => (
                   <button 
                     key={tab.id}
-                    className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
-                    onClick={() => setActiveTab(tab.id)}
+                    className={`tab-btn ${idx === 0 ? 'active' : ''}`}
+                    onClick={(e) => handleTabClick(e, tab.id)}
                   >
                     {tab.label}
                   </button>
@@ -224,33 +206,26 @@ const ProgramPage = () => {
               </div>
 
               <div className="tab-content-area">
-                <AnimatePresence mode="wait">
-                  {program.requirements.tabs.map(tab => (
-                    activeTab === tab.id && (
-                      <motion.div 
-                        key={tab.id}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.3 }}
-                        className="requirements-grid"
-                      >
-                        {tab.items.map((item, idx) => {
-                          const IconComponent = IconMap[item.icon] || Award;
-                          return (
-                            <div key={idx} className="requirement-card">
-                              <div className="requirement-icon">
-                                <IconComponent size={36} />
-                              </div>
-                              <h3>{item.title}</h3>
-                              <p style={{ whiteSpace: 'pre-line' }}>{item.description}</p>
-                            </div>
-                          );
-                        })}
-                      </motion.div>
-                    )
-                  ))}
-                </AnimatePresence>
+                {program.requirements.tabs.map((tab, idx) => (
+                  <div 
+                    key={tab.id}
+                    className={`requirements-grid tab-panel tab-content-animated ${idx === 0 ? 'active' : ''}`}
+                    data-tab={tab.id}
+                  >
+                    {tab.items.map((item, i) => {
+                      const IconComponent = IconMap[item.icon] || Award;
+                      return (
+                        <div key={i} className="requirement-card">
+                          <div className="requirement-icon">
+                            <IconComponent size={36} />
+                          </div>
+                          <h3>{item.title}</h3>
+                          <p style={{ whiteSpace: 'pre-line' }}>{item.description}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -288,7 +263,6 @@ const ProgramPage = () => {
               <h2 className="text-center section-title">{program.process.title}</h2>
               
               <div className="process-grid-container">
-                {/* Visual grid connecting cells */}
                 <div className="process-cell light-cell process-top-left">
                   <div className="process-cell-content">
                     {(() => {

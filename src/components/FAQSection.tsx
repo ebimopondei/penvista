@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import './FAQSection.css';
 
 type FaqCategory = 'citizenship' | 'residency' | 'benefits' | 'process';
@@ -27,11 +25,11 @@ const faqData: Record<FaqCategory, { question: string, answer: string }[]> = {
     },
     {
       question: "Which countries offer Residency by Investment Programs?",
-      answer: "Many countries worldwide offer Residency by Investment programs, with popular options including Portugal’s Golden Visa, Spain, Greece, Malta in Europe as well as the EB-5 program in the United States. Each program has unique investment requirements, residency obligations and benefits."
+      answer: "Many countries worldwide offer Residency by Investment programs, with popular options including Portugal's Golden Visa, Spain, Greece, Malta in Europe as well as the EB-5 program in the United States. Each program has unique investment requirements, residency obligations and benefits."
     },
     {
       question: "Can Residency by Investment lead to citizenship?",
-      answer: "Many Residency by Investment programs provide a pathway to citizenship after a specific period of residence. For Example, Portugal’s Golden Visa allows application for citizenship after 5 years while Spain requires 10 years of residency before citizenship eligibility."
+      answer: "Many Residency by Investment programs provide a pathway to citizenship after a specific period of residence. For Example, Portugal's Golden Visa allows application for citizenship after 5 years while Spain requires 10 years of residency before citizenship eligibility."
     }
   ],
   benefits: [
@@ -55,7 +53,7 @@ const faqData: Record<FaqCategory, { question: string, answer: string }[]> = {
     },
     {
       question: "What documentation is required for the application process?",
-      answer: "Generally, you’ll need valid identification, proof of funds, investment source verification and a clean criminal record. Specific documentation requirements vary by country."
+      answer: "Generally, you'll need valid identification, proof of funds, investment source verification and a clean criminal record. Specific documentation requirements vary by country."
     },
     {
       question: "Can my family members be included in my citizenship or residency application?",
@@ -64,16 +62,55 @@ const faqData: Record<FaqCategory, { question: string, answer: string }[]> = {
   ]
 };
 
+const handleTabClick = (e: React.MouseEvent<HTMLButtonElement>, tab: string) => {
+  const container = e.currentTarget.closest('.faq-container');
+  if (!container) return;
+
+  // Update active tab
+  container.querySelectorAll('.faq-tab').forEach(btn => btn.classList.remove('active'));
+  e.currentTarget.classList.add('active');
+
+  // Show the matching FAQ panel, hide others
+  container.querySelectorAll('.faq-panel').forEach(panel => {
+    if (panel.getAttribute('data-tab') === tab) {
+      panel.classList.add('active');
+    } else {
+      panel.classList.remove('active');
+    }
+  });
+
+  // Open first item in new tab
+  const activePanel = container.querySelector(`.faq-panel[data-tab="${tab}"]`);
+  if (activePanel) {
+    activePanel.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+    activePanel.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+    const firstItem = activePanel.querySelector('.faq-item');
+    const firstAnswer = activePanel.querySelector('.faq-answer');
+    if (firstItem) firstItem.classList.add('active');
+    if (firstAnswer) firstAnswer.classList.add('open');
+  }
+};
+
+const handleFaqClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const item = e.currentTarget;
+  const panel = item.closest('.faq-panel');
+  if (!panel) return;
+
+  const answer = item.querySelector('.faq-answer');
+  const isOpen = item.classList.contains('active');
+
+  // Close all items in this panel
+  panel.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+  panel.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+
+  // Open clicked item if it wasn't open
+  if (!isOpen && answer) {
+    item.classList.add('active');
+    answer.classList.add('open');
+  }
+};
+
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [activeTab, setActiveTab] = useState<FaqCategory>('citizenship');
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const currentFaqs = faqData[activeTab];
-
   return (
     <section className="faq bg-white">
       <div className="container faq-container">
@@ -83,14 +120,11 @@ const FAQSection = () => {
           <p>Whether you're curious about our services, investment options, or the application process, we have curated answers to help you make informed decisions. Look through the categories below to quickly find the topics that matter most to you!</p>
           
           <div className="faq-tabs">
-            {(Object.keys(faqData) as FaqCategory[]).map((tab) => (
+            {(Object.keys(faqData) as FaqCategory[]).map((tab, idx) => (
               <button 
                 key={tab}
-                className={`faq-tab ${activeTab === tab ? 'active' : ''}`}
-                onClick={() => {
-                  setActiveTab(tab);
-                  setOpenIndex(0); // Reset open FAQ when switching tabs
-                }}
+                className={`faq-tab ${idx === 0 ? 'active' : ''}`}
+                onClick={(e) => handleTabClick(e, tab)}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
               </button>
@@ -98,35 +132,28 @@ const FAQSection = () => {
           </div>
         </div>
 
-        <div className="faq-list">
-          {currentFaqs.map((faq, index) => (
-            <div 
-              key={index} 
-              className={`faq-item ${openIndex === index ? 'active' : ''}`}
-              onClick={() => toggleFAQ(index)}
-            >
-              <div className="faq-question">
-                <h3>{faq.question}</h3>
-                <span className="faq-icon">
-                  {openIndex === index ? <Minus size={20} /> : <Plus size={20} />}
-                </span>
+        {(Object.keys(faqData) as FaqCategory[]).map((tab, tabIdx) => (
+          <div key={tab} className={`faq-list faq-panel ${tabIdx === 0 ? 'active' : ''}`} data-tab={tab}>
+            {faqData[tab].map((faq, index) => (
+              <div 
+                key={index} 
+                className={`faq-item ${tabIdx === 0 && index === 0 ? 'active' : ''}`}
+                onClick={handleFaqClick}
+              >
+                <div className="faq-question">
+                  <h3>{faq.question}</h3>
+                  <span className="faq-icon">
+                    <Plus size={20} className="icon-plus" />
+                    <Minus size={20} className="icon-minus" />
+                  </span>
+                </div>
+                <div className={`faq-answer ${tabIdx === 0 && index === 0 ? 'open' : ''}`}>
+                  <p>{faq.answer}</p>
+                </div>
               </div>
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div 
-                    className="faq-answer"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <p>{faq.answer}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ))}
 
       </div>
     </section>

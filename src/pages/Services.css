@@ -232,8 +232,29 @@
   gap: 12px;
 }
 
+.accordion-header .icon-minus {
+  display: none;
+}
+.accordion-header .icon-plus {
+  display: block;
+}
+.accordion-item.active .accordion-header .icon-minus {
+  display: block;
+}
+.accordion-item.active .accordion-header .icon-plus {
+  display: none;
+}
+
 .accordion-content {
   overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+  opacity: 1;
 }
 
 .accordion-inner {

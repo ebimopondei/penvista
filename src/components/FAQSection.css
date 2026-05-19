@@ -95,8 +95,36 @@
   color: var(--primary);
 }
 
+.faq-icon .icon-minus {
+  display: none;
+}
+.faq-icon .icon-plus {
+  display: block;
+}
+.faq-item.active .faq-icon .icon-minus {
+  display: block;
+}
+.faq-item.active .faq-icon .icon-plus {
+  display: none;
+}
+
+.faq-panel {
+  display: none;
+}
+.faq-panel.active {
+  display: block;
+}
+
 .faq-answer {
   overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 500px;
+  opacity: 1;
 }
 
 .faq-answer p {

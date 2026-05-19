@@ -110,3 +110,72 @@ section {
   border-color: var(--primary);
   color: var(--primary);
 }
+
+/* ========== CSS Animations (replaces framer-motion) ========== */
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeSlideRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeScaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Animate on load */
+.anim-slide-up {
+  animation: fadeSlideUp 0.8s ease-out both;
+}
+.anim-slide-up-d1 {
+  animation: fadeSlideUp 0.8s ease-out 0.1s both;
+}
+.anim-slide-up-d2 {
+  animation: fadeSlideUp 0.8s ease-out 0.2s both;
+}
+.anim-slide-up-d3 {
+  animation: fadeSlideUp 0.8s ease-out 0.3s both;
+}
+.anim-slide-left {
+  animation: fadeSlideLeft 0.6s ease-out both;
+}
+.anim-slide-right {
+  animation: fadeSlideRight 0.6s ease-out both;
+}
+.anim-slide-right-d2 {
+  animation: fadeSlideRight 0.6s ease-out 0.2s both;
+}
+.anim-scale-in {
+  animation: fadeScaleIn 0.5s ease-out both;
+}
+.anim-fade-in {
+  animation: fadeIn 0.3s ease-out both;
+}
+
+/* Tab panel visibility */
+.tab-panel {
+  display: none;
+}
+.tab-panel.active {
+  display: grid;
+}
+
+/* Tab content transition */
+.tab-content-animated {
+  animation: fadeSlideUp 0.3s ease-out both;
+}

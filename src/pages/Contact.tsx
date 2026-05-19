@@ -1,5 +1,4 @@
 import { Mail, Phone, MapPin, Calendar } from 'lucide-react';
-import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import './Contact.css';
 import bgImage from '../assets/images/I7GjIQbARsN9Omsak972NRF7WQ.png';
@@ -15,20 +14,12 @@ const Contact = () => {
         {/* Hero Section */}
         <section className="contact-hero" style={{ backgroundImage: `url(${bgImage})` }}>
           <div className="container contact-hero-content">
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <h1 className="anim-slide-up">
               Contact Us
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            </h1>
+            <p className="anim-slide-up-d2">
               At Penvista, we are dedicated to empowering individuals and families with tailored advisory solutions that drive value and satisfaction.
-            </motion.p>
+            </p>
           </div>
         </section>
 
@@ -37,44 +28,37 @@ const Contact = () => {
         {/* Info Cards Section */}
         <section className="contact-info-section container">
             <div className="contact-cards">
-              <motion.div 
-                className="info-card"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+              <div 
+                className="info-card anim-slide-up-d3"
               >
                 <div className="info-icon">
                   <MapPin size={28} />
                 </div>
                 <h3>Our Office</h3>
                 <p>6 Sirakoro Street off Blantyre street,<br/>Wuse II, Abuja, Nigeria.</p>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                className="info-card"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+              <div 
+                className="info-card anim-slide-up"
+                style={{ animationDelay: '0.4s' }}
               >
                 <div className="info-icon">
                   <Phone size={28} />
                 </div>
                 <h3>Customer Care</h3>
                 <p>+234 915 - 084 - 6333</p>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                className="info-card"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+              <div 
+                className="info-card anim-slide-up"
+                style={{ animationDelay: '0.5s' }}
               >
                 <div className="info-icon">
                   <Mail size={28} />
                 </div>
                 <h3>Email Address</h3>
                 <p>info@penvistalimited.com</p>
-              </motion.div>
+              </div>
             </div>
         </section>
 
@@ -82,13 +66,7 @@ const Contact = () => {
         <section className="contact-form-section container">
           <div className="contact-form-grid">
             {/* Left Content */}
-            <motion.div 
-              className="contact-text-content"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <div className="contact-text-content anim-slide-left">
               <span className="contact-pill">Contact us</span>
               <h2>Get in Touch</h2>
               <p>
@@ -106,16 +84,10 @@ const Contact = () => {
                     </defs>
                   </svg>
               </div>
-            </motion.div>
+            </div>
 
             {/* Right Form Card */}
-            <motion.div 
-              className="contact-form-card"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <div className="contact-form-card anim-slide-right-d2">
               <h3>Let's Talk</h3>
               <p className="form-subtitle">Fill out the form below, and let us help you unlock the benefits of global citizenship today!</p>
               
@@ -138,7 +110,7 @@ const Contact = () => {
                   Contact us
                 </button>
               </form>
-            </motion.div>
+            </div>
           </div>
         </section>
 

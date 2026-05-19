@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
+
 import { ArrowRight, ChevronLeft, ChevronRight, Play } from 'lucide-react';
-import { motion } from 'framer-motion';
 import './ProgramsSection.css';
 import antiguaImg from '../assets/images/B4mdtRSgsphYROOzk6tEAsMo17f5.png';
 import dominicaImg from '../assets/images/79GZ2luNSOrtht7JE6RYHJZP84.png';
@@ -143,17 +142,22 @@ const residencyPrograms: programs[] = [
   },
 ];
 
-const ProgramsSection = () => {
-  const citizenshipRef = useRef<HTMLDivElement>(null);
-  const residencyRef = useRef<HTMLDivElement>(null);
-  const [playingVideos, setPlayingVideos] = useState<{[key: number]: boolean}>({});
+const handlePlayVideo = (e: React.MouseEvent<HTMLDivElement>, videoUrl: string, country: string) => {
+  const wrapper = e.currentTarget.closest('.card-video');
+  if (wrapper) {
+    wrapper.innerHTML = `<iframe src="${videoUrl}?autoplay=1" title="${country} Program" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;border-radius:inherit;"></iframe>`;
+  }
+};
 
-  const scrollSlider = (ref: React.RefObject<HTMLDivElement>, direction: 'left' | 'right') => {
-    if (ref.current) {
-      const scrollAmount = ref.current.clientWidth * (window.innerWidth < 768 ? 1 : 0.4);
-      ref.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
-    }
-  };
+const scrollSlider = (sliderId: string, direction: 'left' | 'right') => {
+  const el = document.getElementById(sliderId);
+  if (el) {
+    const scrollAmount = el.clientWidth * (window.innerWidth < 768 ? 1 : 0.4);
+    el.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+  }
+};
+
+const ProgramsSection = () => {
 
   return (
     <section className="programs">
@@ -161,39 +165,34 @@ const ProgramsSection = () => {
       {/* Floating Info Cards */}
       <div className="programs-stats container stats-container">
         <div className="hero-stats-wrapper">
-          <motion.div 
-            className="hero-stats"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <motion.div  className="stat-card" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
+          <div className="hero-stats anim-slide-up-d3">
+            <div className="stat-card anim-slide-up-d3">
               <div className="stat-card-top">
                 <h3>Over 10K +</h3>
               </div>
               <div className="stat-card-bottom">
                 <p>Families Advised</p>
               </div>
-            </motion.div>
-            <motion.div className="stat-card" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
+            </div>
+            <div className="stat-card anim-slide-up-d3">
               <div className="stat-card-top">
                 <h3>5 Years</h3>
               </div>
               <div className="stat-card-bottom">
                 <p>In Experience</p>
               </div>
-            </motion.div>
-            <motion.div className="stat-card" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
+            </div>
+            <div className="stat-card anim-slide-up-d3">
               <div className="stat-card-top">
                 <h3>100%</h3>
               </div>
               <div className="stat-card-bottom">
                 <p>Success rate</p>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          {/* Mobile slider controls (visual only since CSS scroll-snap handles interaction natively) */}
+          {/* Mobile slider controls */}
           <div className="mobile-stats-nav">
               <button className="stats-nav-btn prev">
                 <ChevronLeft size={20} color="white" />
@@ -210,43 +209,25 @@ const ProgramsSection = () => {
         
         {/* Citizenship Section */}
         <div id='citizenship' className="program-category">
-          <motion.div 
-            className="program-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="program-header anim-slide-up">
             <span className="section-label">Citizenship by Investment</span>
             <h2>Secure a powerful second passport through our <span className='sub'>expertly managed citizenship by investment programs.</span></h2>
-          </motion.div>
+          </div>
 
-          <div className="programs-slider" ref={citizenshipRef}>
+          <div className="programs-slider" id="citizenship-slider">
             {citizenshipPrograms.map((program, index) => (
-              <motion.div 
+              <div 
                 key={index}
-                className="program-card"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="program-card anim-slide-up"
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="card-video">
-                  {!playingVideos[index] ? (
-                    <div className="video-thumbnail" onClick={() => setPlayingVideos({...playingVideos, [index]: true})}>
-                      <img src={program.thumbnail} alt={`${program.country} Video Thumbnail`} />
-                      <div className="play-button-overlay">
-                        <Play size={24} fill="white" color="white" />
-                      </div>
+                  <div className="video-thumbnail" onClick={(e) => handlePlayVideo(e, program.videoUrl, program.country)}>
+                    <img src={program.thumbnail} alt={`${program.country} Video Thumbnail`} />
+                    <div className="play-button-overlay">
+                      <Play size={24} fill="white" color="white" />
                     </div>
-                  ) : (
-                    <iframe 
-                      src={`${program.videoUrl}?autoplay=1`} 
-                      title={`${program.country} Program`} 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                      allowFullScreen
-                    ></iframe>
-                  )}
+                  </div>
                 </div>
                 <div className="card-content">
                   <div className="card-title">
@@ -262,13 +243,13 @@ const ProgramsSection = () => {
                     </Link>
                   </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           <div className="carousel-controls">
-            <button className="carousel-btn" onClick={() => scrollSlider(citizenshipRef, 'left')}><ChevronLeft size={20} /></button>
-            <button className="carousel-btn" onClick={() => scrollSlider(citizenshipRef, 'right')}><ChevronRight size={20} /></button>
+            <button className="carousel-btn" onClick={() => scrollSlider('citizenship-slider', 'left')}><ChevronLeft size={20} /></button>
+            <button className="carousel-btn" onClick={() => scrollSlider('citizenship-slider', 'right')}><ChevronRight size={20} /></button>
           </div>
         </div>
 
@@ -276,43 +257,25 @@ const ProgramsSection = () => {
 
         {/* Residency Section */}
         <div id='residency' className="program-category">
-          <motion.div 
-            className="program-header"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="program-header anim-slide-up">
             <span className="section-label">Residency by Investment</span>
             <h2>Transform property investments into life-changing residency opportunities across elite global destinations.</h2>
-          </motion.div>
+          </div>
 
-          <div className="programs-slider" ref={residencyRef}>
+          <div className="programs-slider" id="residency-slider">
             {residencyPrograms.map((program, index) => (
-              <motion.div 
+              <div 
                 key={index}
-                className="program-card"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="program-card anim-slide-up"
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="card-video">
-                  {!playingVideos[index] ? (
-                    <div className="video-thumbnail" onClick={() => setPlayingVideos({...playingVideos, [index]: true})}>
-                      <img src={program.thumbnail} alt={`${program.country} Video Thumbnail`} />
-                      <div className="play-button-overlay">
-                        <Play size={24} fill="white" color="white" />
-                      </div>
+                  <div className="video-thumbnail" onClick={(e) => handlePlayVideo(e, program.videoUrl, program.country)}>
+                    <img src={program.thumbnail} alt={`${program.country} Video Thumbnail`} />
+                    <div className="play-button-overlay">
+                      <Play size={24} fill="white" color="white" />
                     </div>
-                  ) : (
-                    <iframe 
-                      src={`${program.videoUrl}?autoplay=1`} 
-                      title={`${program.country} Program`} 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                      allowFullScreen
-                    ></iframe>
-                  )}
+                  </div>
                 </div>
                 <div className="card-content">
                   <div className="card-title">
@@ -328,13 +291,13 @@ const ProgramsSection = () => {
                     </Link>
                   </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           <div className="carousel-controls">
-            <button className="carousel-btn" onClick={() => scrollSlider(residencyRef, 'left')}><ChevronLeft size={20} /></button>
-            <button className="carousel-btn" onClick={() => scrollSlider(residencyRef, 'right')}><ChevronRight size={20} /></button>
+            <button className="carousel-btn" onClick={() => scrollSlider('residency-slider', 'left')}><ChevronLeft size={20} /></button>
+            <button className="carousel-btn" onClick={() => scrollSlider('residency-slider', 'right')}><ChevronRight size={20} /></button>
           </div>
         </div>
 

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 import './TestimonialsSection.css';
 
@@ -41,14 +40,10 @@ const TestimonialsSection = () => {
 
         <div className="testimonials-grid">
           {testimonials.map((testimonial, index) => (
-            <motion.div 
+            <div 
               key={index}
-              className={`testimonial-card col-span-${testimonial.colSpan} row-span-${testimonial.rowSpan}`}
-              style={{ backgroundColor: testimonial.background }}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              className={`testimonial-card anim-scale-in col-span-${testimonial.colSpan} row-span-${testimonial.rowSpan}`}
+              style={{ backgroundColor: testimonial.background, animationDelay: `${index * 0.15}s` }}
             >
               <Quote className="quote-icon" size={24} />
               <p className="testimonial-text">{testimonial.text}</p>
@@ -57,7 +52,7 @@ const TestimonialsSection = () => {
                 <img src={testimonial.image} alt={testimonial.name} />
                 <strong>{testimonial.name}</strong>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
